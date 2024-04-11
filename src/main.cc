@@ -11,19 +11,20 @@ g++ src/main.cc src/utils.cc -o fast-find;
 
 int main(int argc, char* argv[]){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
-    std::string loose = ""; // loose search, default is empty
-
+    char loose = '\0'; // loose search, default is empty
+    
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
         std::string input = argv[i];
         if(input == "-l" || input == "--loose"){ //specifies looseness of search
-            loose = "*"; // assigns loose to asterisk
+            loose = '*'; // assigns loose to asterisk
+
             continue; // iterates
         } else if (input == "-s" || input == "--strict"){ //specifies strictness of search
-            loose= ""; //sets loose to nothing
+            loose= '\0'; //sets loose to nothing
             continue; //iterates
-        }
+        } 
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
@@ -49,7 +50,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_file.empty()){ // if there's files
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
-            std::cout << "FILES:\t\t\t" << ((loose.empty()) ? "(strict)" : "(loose)");
+            std::cout << "FILES:\t\t\t" << ((loose) ? "(strict)" : "(loose)");
             for(const std::string& out: arr_file){
                 std::cout << N << "  "<< out;
             }
@@ -58,7 +59,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir.empty()){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
-            std::cout << "DIRECTORIES:\t\t" << ((loose.empty()) ? "(strict)" : "(loose)");
+            std::cout << "DIRECTORIES:\t\t" << ((loose) ? "(strict)" : "(loose)");
             for(const std::string& out: arr_dir){
                 std::cout << N << "  "<< out;
             }
