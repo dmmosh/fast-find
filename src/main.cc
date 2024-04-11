@@ -25,14 +25,10 @@ int main(int argc, char* argv[]){
             continue; //iterates
         }
 
-        // prints the variable name
-        std::cout << "\nVARIABLE ";
-        int j = 0;
-        while(argv[i][j]){
-            std::cout << (char)toupper(argv[i][j]);
-            j++;
-        };
-        std::cout << N;
+        std::string print_input = input;
+        std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
+        std::cout << "\nVARIABLE " << print_input;
+    
 
         std::vector <std::string> arr_file = exec("find . -type f -iname \""
                                                     + loose 

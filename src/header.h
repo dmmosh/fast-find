@@ -7,6 +7,7 @@
 #include <array>
 #include <string.h>
 #include <vector>
+#include<bits/stdc++.h> 
 
 #define N '\n'
 
