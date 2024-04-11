@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir.empty()){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
-            std::cout << "DIRECTORIES:\t\t\t" << ((loose.empty()) ? "(strict)" : "(loose)");
+            std::cout << "DIRECTORIES:\t\t" << ((loose.empty()) ? "(strict)" : "(loose)");
             for(const std::string& out: arr_dir){
                 std::cout << N << "  "<< out;
             }
