@@ -40,8 +40,8 @@ int main(int argc, char* argv[]){
         }
         input.push_back('\"'); // adds a closing bracket
 
-        std::vector <std::string> arr_file = exec("find . -type f" + input + " 2>/dev/null");
-        std::vector <std::string> arr_dir = exec("find . -type d" + input + " 2>/dev/null");
+        std::vector <std::string> arr_file = exec("find . -type f " + input + " 2>/dev/null");
+        std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
