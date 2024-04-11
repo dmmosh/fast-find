@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     bool cd = true; // whether to cd command, default true
 
     int total = 0; // the total # of elements
-    int iterated = 0; //iterated counter
+    int iterated = 1; //iterated counter
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]){
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
             for(const std::string& out: arr_file){
-                std::cout << N << total - iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: arr_dir){
-                std::cout << N <<  total - iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
