@@ -29,17 +29,18 @@ int main(int argc, char* argv[]){
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
         std::cout << "\nVARIABLE " << print_input << ":\n";
-    
+
+        if(loose) { // if loose is NOT the null terminator, append it to the input
+            input.push_back(loose);
+            input.insert(input.begin(), loose);
+        }
+
 
         std::vector <std::string> arr_file = exec("find . -type f -iname \""
-                                                    + loose 
-                                                    + std::string(argv[i]) 
-                                                    + loose 
+                                                    + input
                                                     + "\" 2>/dev/null");
         std::vector <std::string> arr_dir = exec("find . -type d -iname \""
-                                                    + loose 
-                                                    + std::string(argv[i]) 
-                                                    + loose
+                                                    + input
                                                     + "\" 2>/dev/null");
 
         
