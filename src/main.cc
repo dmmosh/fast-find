@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input << ((loose != '\0') ? "  (LOOSE)" : "  (STRICT)") << ":\n";
+        std::cout << "\nVARIABLE  " << print_input << ((loose != '\0') ? "  (LOOSE)" : "  (STRICT)") << ":\n";
 
         
         if(loose != '\0') { // if loose is NOT null terminator, aka search is LOOSE
