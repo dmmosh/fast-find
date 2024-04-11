@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
 
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
-    std::vector<std::vector<std::string>*> vector_ptr; // vector pointers
+    std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
@@ -52,7 +52,8 @@ int main(int argc, char* argv[]){
         }
         input.push_back('\"'); // adds a closing bracket
 
-        // runs the linux command
+        // runs the linux commands
+        // and allocates the output vectors in dynamically allocated memory
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
@@ -124,7 +125,7 @@ int main(int argc, char* argv[]){
         for (size_t i = 0; i < vector_ptr.size(); i++)
         {
             std::cout << *(vector_ptr[i]);
-            delete vector_ptr[i];
+            delete vector_ptr[i]; //frees the memory
         }
         
     
