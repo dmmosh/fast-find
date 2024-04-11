@@ -116,7 +116,7 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInput out of bounds.\n";
                 return 0;
             }
-            std::cout << cd_loc;
+            std::cout << cd_loc < N;
 
 
         }
