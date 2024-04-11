@@ -34,6 +34,3 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
-
-// ECHO FROM A STRING
-void echo(const std::string& input); 

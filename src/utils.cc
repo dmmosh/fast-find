@@ -72,8 +72,3 @@ std::vector<std::string> exec(const std::string& cmd) {
     return result;
 }
 
-
-void echo(const std::string& input) {
-    system(("echo -e \"" + input + "\"").c_str());
-    
-};

@@ -32,14 +32,18 @@ int main(int argc, char* argv[]){
             std::cout << "  No files/directories found.\n"; // prints message
             continue; // skips to the next element
         } else if (!arr_file.empty()){ // if there's files
-            echo("\e[42mfdsf");
+            merge_sort(arr_file); //sorts the output file
+            std::cout << "FILES:";
+            for(const std::string& out: arr_file){
+                std::cout << N << out;
+            }
+            std::cout << N;
             
         }
 
 
-        merge_sort(arr_file); //aad
-        merge_sort(arr_dir);
-        std::cout << arr_file << N << arr_dir;
+        //merge_sort(arr_dir);
+        //std::cout << arr_file << N << arr_dir;
     }
     
     return 0;
