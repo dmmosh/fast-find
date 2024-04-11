@@ -83,7 +83,6 @@ int main(int argc, char* argv[]){
             std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             std::cin >> input; // takes input
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
-            std::cout << N; //newline
             if (input == "no" || input == "n") { // if user types no
                 continue;
             }
