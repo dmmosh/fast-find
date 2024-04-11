@@ -19,6 +19,9 @@ int main(int argc, char* argv[]){
         if(EQUALS(argv[i], "-l") || EQUALS(argv[i], "--loose")){ //specifies looseness of search
             loose = "*"; // assigns loose to asterisk
             continue; // iterates
+        } else if (EQUALS(argv[i], "-e") || EQUALS(argv[i], "--exact")){ //specifies exactness of search
+            loose= ""; //sets loose to nothing
+            continue;
         }
 
         // prints the variable name
