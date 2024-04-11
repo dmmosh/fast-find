@@ -101,6 +101,10 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInvalid number.\n"; 
                 continue;
             }
+            if(cd_loc > total){
+                std::cout << "\tInput out of bounds.\n";
+                continue;
+            }
             std::cout << cd_loc;
 
 
