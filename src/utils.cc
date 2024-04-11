@@ -20,14 +20,37 @@ void merge_sort(std::vector<std::string>& arr, int left, int middle, int right) 
     int right_range = right-middle; // the right value range
 
     // creates temp arrays 
-    std::vector<std::string> temp_left(arr.begin() + left, arr.begin() + left + left_range);
-    std::vector<std::string> temp_right(arr.begin() + middle+1, arr.begin() + middle+1+right_range);
-    std::cout << N << temp_left << '\t' << left_range;
-    std::cout << N << temp_right << '\t' << right_range;
+    std::vector<std::string> temp_left(arr.begin() + left, arr.begin() + left + left_range); //left subarray
+    std::vector<std::string> temp_right(arr.begin() + middle+1, arr.begin() + middle+1+right_range); //right subarray
 
-    int i =0;
-    int j = 0;
-    int k = left;
+    // DEBUG
+    std::cout << N << temp_left << '\t' << left_range; //DEBUG
+    std::cout << N << temp_right << '\t' << right_range; //DEBUG
+
+    int i =0; // iterates left array
+    int j = 0; // iterates right array
+    int k = left; // iterates left array
+    while (i < left_range && j <right_range){ //sorts the values
+        if(temp_left[i].length() <= temp_right[j].length()){
+            arr[k] = temp_left[i];
+            i++;
+        } else {
+            arr[k] = temp_right[j];
+            j++;
+        }
+        k++;
+    }
+
+    while ( i < left_range){ //clears the left subarray 
+        arr[k] = temp_left[i];
+        i++;
+        k++;
+    }
+    while( j < right_range){
+        arr[k] = temp_right[j];
+        j++;
+        k++;
+    }
     
     
 };
