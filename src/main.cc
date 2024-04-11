@@ -2,6 +2,6 @@
 
 int main(){
     std::cout << "fdkjskl\n";
-    std::cout << exec("find . -type d -iname \"*.cc*\" 2>/dev/null");
+    std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     return 0;
 }
