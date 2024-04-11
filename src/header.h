@@ -15,7 +15,7 @@ template<typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         for (unsigned int i = 0; i < input.size(); i++) //iterates over the elements
         {
-            if(!i) out << " "; //adds a space to before printing if not first element
+            if(i) out << " "; //adds a space to before printing if not first element
             out << input[i];
         }
         

@@ -2,7 +2,7 @@
 
 int main(){
     std::cout << "fdkjskl\n";
-    std::vector<std::string> test = {"fdfd","fdsdc","fdsdcsaq"};
+    std::vector<std::string> test = {"banbana","apple","orange"};
     std::cout << test;
     return 0;
 }
