@@ -86,12 +86,14 @@ int main(int argc, char* argv[]){
             if (input == "no" || input == "n") { // if user types no
                 continue;
             }
-            if (!isdigit(atoi(input.c_str()))) { // if the input is invalid character
+            char* invalid;
+            int cd_loc = strtol(input.c_str(), &invalid, 10);
+            if(*invalid){
                 std::cout << "\tInvalid number.\n"; 
                 continue;
             }
-            int cd_loc = atoi(input.c_str()); //change directory to
 
+            
         }
         //merge_sort(arr_dir);
         //std::cout << arr_file << N << arr_dir;

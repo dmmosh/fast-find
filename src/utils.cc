@@ -72,3 +72,9 @@ std::vector<std::string> exec(const std::string& cmd) {
     return result;
 }
 
+bool is_int(std::string line)
+{
+    char* p;
+    strtol(line.c_str(), &p, 10);
+    return *p == 0;
+}
