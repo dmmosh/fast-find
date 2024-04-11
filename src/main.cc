@@ -30,18 +30,18 @@ int main(int argc, char* argv[]){
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
         std::cout << "\nVARIABLE " << print_input << ((loose) ? "  (STRICT)" : "  (LOOSE)") << ":\n";
 
-        if(loose) { // if loose is NOT the null terminator, append it to the input
-            input.push_back(loose);
-            input.insert(input.begin(), loose);
+        
+        if(loose) { // if loose is NOT null terminator, aka search is LOOSE
+            input.push_back(loose); //inserts loose asterisk in end
+            input.insert(input.begin(), loose); // inserts loose asterisk in beginning
+            input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
+        } else { // if strict
+            input.insert(0, "-name \""); // inserts -name, case SENSITIVE
         }
+        input.push_back('\"'); // adds a closing bracket
 
-
-        std::vector <std::string> arr_file = exec("find . -type f -iname \""
-                                                    + input
-                                                    + "\" 2>/dev/null");
-        std::vector <std::string> arr_dir = exec("find . -type d -iname \""
-                                                    + input
-                                                    + "\" 2>/dev/null");
+        std::vector <std::string> arr_file = exec("find . -type f" + input + " 2>/dev/null");
+        std::vector <std::string> arr_dir = exec("find . -type d" + input + " 2>/dev/null");
 
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
