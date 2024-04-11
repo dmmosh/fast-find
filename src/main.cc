@@ -92,8 +92,9 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInvalid number.\n"; 
                 continue;
             }
+            std::cout << cd_loc;
 
-            
+
         }
         //merge_sort(arr_dir);
         //std::cout << arr_file << N << arr_dir;
