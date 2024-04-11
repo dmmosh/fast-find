@@ -120,9 +120,11 @@ int main(int argc, char* argv[]){
 
 
         }
-    for(const std::vector<std::string>* print: vector_ptr){
-        std::cout << *print;
+    for (size_t i = 0; i < vector_ptr.size(); i++)
+    {
+        std::cout << *(vector_ptr[i]);
     }
+    
     
     return 0;
 }
