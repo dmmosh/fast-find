@@ -13,21 +13,26 @@ int main(int argc, char* argv[]){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose = '\0'; // loose search, default is empty
     bool pwd = false; // whether to print the working directory
+    bool cd = false; // whether to cd command
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
+        
+
         std::string input = argv[i];
         if(input == "-l" || input == "--loose"){ //specifies looseness of search
             loose = '*'; // assigns loose to asterisk
 
-            continue; // iterates
         } else if (input == "-s" || input == "--strict"){ //specifies strictness of search
             loose= '\0'; //sets loose to nothing
-            continue; //iterates
-        } else if (input == "-pwd"){ //if user wants to print the working directory
+
+        } else if (input == "-pwd" || input == "--print-work-dir"){ //if user wants to print the working directory
             pwd = true; //assign to true
-            continue; //iterates
-        }
+
+        } else if (input == "-cd" || input == "--change-dir"){ //if want to change dir
+            cd = (cd) ? false : true; //turns cd on/off if it's already on/off
+
+        } else {
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
@@ -47,7 +52,8 @@ int main(int argc, char* argv[]){
         std::vector <std::string> arr_file = exec("find . -type f " + input + " 2>/dev/null");
         std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
-        
+        int total = arr_file.size() + arr_dir.size(); // the total # of elements
+        int iterated = 0; //iterated counter
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
             std::cout << "  No files/directories found.\n"; // prints message
@@ -58,7 +64,7 @@ int main(int argc, char* argv[]){
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "FILES:";
             for(const std::string& out: arr_file){
-                std::cout << N << "  " << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << total - iterated-- << "\n\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
@@ -67,14 +73,24 @@ int main(int argc, char* argv[]){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
-                std::cout << N << "  "<< ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << total - iterated-- << "\n\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
 
+        if(cd) {
+            std::string input;
+            std::cout << "cd? [Enter a number]:  ";
+            std::cin >> input;
+            std::cout << N;
+            if (!isdigit(atoi(input.c_str()))) {
+                std::cout << "Invalid number.\n";
+            }
 
+        }
         //merge_sort(arr_dir);
         //std::cout << arr_file << N << arr_dir;
+        }
     }
     
     return 0;

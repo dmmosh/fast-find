@@ -10,6 +10,7 @@
 #include<bits/stdc++.h> 
 
 #define N '\n'
+#define IS_NUM (isdigit(atoi(input.c_str()))) ? true : false;
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
