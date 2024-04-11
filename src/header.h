@@ -7,10 +7,11 @@
 #include <array>
 #include <vector>
 
-
+// EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
 
 // PRINT A VECTOR
+// mostly for debug
 template<typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         for (unsigned int i = 0; i < input.size(); i++) //iterates over the elements

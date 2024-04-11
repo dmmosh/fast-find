@@ -2,7 +2,6 @@
 
 int main(){
     std::cout << "fdkjskl\n";
-    std::vector<std::string> test = {"banbana","apple","orange"};
-    std::cout << test;
+    std::cout << exec("find . -type d -iname \"*.sh*\" 2>/dev/null");
     return 0;
 }
