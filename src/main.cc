@@ -62,7 +62,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_file.empty()){ // if there's files
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
-            std::cout << "\t\tFILES:";
+            std::cout << "\tFILES:";
             for(const std::string& out: arr_file){
                 std::cout << N << total - iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir.empty()){ // if theres directories
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
-            std::cout << "\t\tDIRECTORIES:";
+            std::cout << "\tDIRECTORIES:";
             for(const std::string& out: arr_dir){
                 std::cout << N <<  total - iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
