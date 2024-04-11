@@ -84,7 +84,7 @@ int main(int argc, char* argv[]){
             std::cin >> input; // takes input
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
             std::cout << N; //newline
-            if (input == "no") { // if user types no
+            if (input == "no" || input == "n") { // if user types no
                 continue;
             }
             if (!isdigit(atoi(input.c_str()))) { // if the input is invalid character
