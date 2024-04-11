@@ -9,7 +9,6 @@
 #include <vector>
 
 #define N '\n'
-#define EQUALS(x,y) !strcmp(x,y)
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);

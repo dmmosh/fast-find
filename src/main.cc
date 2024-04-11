@@ -16,12 +16,13 @@ int main(int argc, char* argv[]){
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
-        if(EQUALS(argv[i], "-l") || EQUALS(argv[i], "--loose")){ //specifies looseness of search
+        std::string input = argv[i];
+        if(input == "-l" || input == "--loose"){ //specifies looseness of search
             loose = "*"; // assigns loose to asterisk
             continue; // iterates
-        } else if (EQUALS(argv[i], "-s") || EQUALS(argv[i], "--strict")){ //specifies exactness of search
+        } else if (input == "-s" || input == "--strict"){ //specifies strictness of search
             loose= ""; //sets loose to nothing
-            continue;
+            continue; //iterates
         }
 
         // prints the variable name
@@ -33,8 +34,16 @@ int main(int argc, char* argv[]){
         };
         std::cout << N;
 
-        std::vector <std::string> arr_file = exec("find . -type f -iname \""+ loose + std::string(argv[i]) + loose+ "\" 2>/dev/null");
-        std::vector <std::string> arr_dir = exec("find . -type d -iname \""+ loose + std::string(argv[i]) + loose+ "\" 2>/dev/null");
+        std::vector <std::string> arr_file = exec("find . -type f -iname \""
+                                                    + loose 
+                                                    + std::string(argv[i]) 
+                                                    + loose 
+                                                    + "\" 2>/dev/null");
+        std::vector <std::string> arr_dir = exec("find . -type d -iname \""
+                                                    + loose 
+                                                    + std::string(argv[i]) 
+                                                    + loose
+                                                    + "\" 2>/dev/null");
 
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
