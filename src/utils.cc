@@ -19,8 +19,8 @@ void merge_sort(std::vector<std::string>& arr, int left, int middle, int right) 
     int left_range = middle-left+1;
     int right_range = right-middle;
 
-    std::vector<std::string> temp_left(arr.begin() + 0, arr.begin() + 1);
-    std::vector<std::string> temp_right(arr.begin() + 0, arr.begin() + 3);
+    std::vector<std::string> temp_left(arr.begin() + 0, arr.begin() + 2);
+    std::vector<std::string> temp_right(arr.begin() + 2, arr.begin() + 5);
     std::cout << N<<temp_left << N << temp_right;
 };
 
