@@ -13,7 +13,11 @@ int main(int argc, char* argv[]){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose = '\0'; // loose search, default is empty
     bool pwd = false; // whether to print the working directory
-    bool cd = true; // whether to cd command
+    bool cd = true; // whether to cd command, default true
+
+    int total = 0; // the total # of elements
+    int iterated = 0; //iterated counter
+
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
@@ -52,8 +56,7 @@ int main(int argc, char* argv[]){
         std::vector <std::string> arr_file = exec("find . -type f " + input + " 2>/dev/null");
         std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
-        int total = arr_file.size() + arr_dir.size(); // the total # of elements
-        int iterated = 0; //iterated counter
+        
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
             std::cout << "\tNo files/directories found.\n"; // prints message
@@ -61,6 +64,7 @@ int main(int argc, char* argv[]){
         }
         
         if (!arr_file.empty()){ // if there's files
+            total += arr_file.size();
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
             for(const std::string& out: arr_file){
@@ -70,6 +74,7 @@ int main(int argc, char* argv[]){
         }
         
         if (!arr_dir.empty()){ // if theres directories
+            total += arr_dir.size();
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: arr_dir){
@@ -78,7 +83,12 @@ int main(int argc, char* argv[]){
             std::cout << N;
         }
 
-        if(cd) {
+        
+        //merge_sort(arr_dir);
+        //std::cout << arr_file << N << arr_dir;
+        }
+    }
+    if(cd && total) {
             std::string input; // the input
             if (total == 1){
                 std::cout << "cd? [Yes / No]:  "; // if onlt 1 total
@@ -89,8 +99,7 @@ int main(int argc, char* argv[]){
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
 
             if (input == "no" || input == "n") { // if user types no
-                continue; //skips the iteration
-
+                return 0;
             } else if (input == "yes" || input == "y"){ //if user says yes, set input to 1
                 input = "1"; //sets input
             }
@@ -99,20 +108,16 @@ int main(int argc, char* argv[]){
             int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
             if(*invalid){
                 std::cout << "\tInvalid number.\n"; 
-                continue;
+                return 0;
             }
             if(cd_loc > total){
                 std::cout << "\tInput out of bounds.\n";
-                continue;
+                return 0;
             }
             std::cout << cd_loc;
 
 
         }
-        //merge_sort(arr_dir);
-        //std::cout << arr_file << N << arr_dir;
-        }
-    }
     
     return 0;
 }
