@@ -8,7 +8,6 @@
 #include <vector>
 
 #define N '\n'
-#define echo(x) system(x); //echo command on linux
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
@@ -35,3 +34,6 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
+
+// ECHO FROM A STRING
+void echo(const std::string& input); 
