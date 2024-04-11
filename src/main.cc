@@ -79,13 +79,15 @@ int main(int argc, char* argv[]){
         }
 
         if(cd) {
-            std::string input;
-            std::cout << "cd? [Enter a number]:  ";
-            std::cin >> input;
-            std::cout << N;
-            if (!isdigit(atoi(input.c_str()))) {
-                std::cout << "Invalid number.\n";
+            std::string input; // the input
+            std::cout << "cd? [Enter a number]:  "; //enters a number to change directory to
+            std::cin >> input; // takes input
+            std::cout << N; //spits out input
+            if (!isdigit(atoi(input.c_str()))) { // if the input is invalid character
+                std::cout << "\tInvalid number.\n"; 
+                continue;
             }
+            int cd_loc = atoi(input.c_str()); //change directory to
 
         }
         //merge_sort(arr_dir);
