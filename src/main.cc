@@ -3,7 +3,7 @@
 int main(){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
 
-    std::vector <std::string> arr = {"hello", "apple", "test", "banana", "tom", "jerry"};
+    std::vector <std::string> arr = {"hello", "applfdfdgrve", "tesfvdt", "bancana", "to", "jerrfdsy"};
     merge_sort(arr);
     std::cout << arr;
     return 0;
