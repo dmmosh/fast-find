@@ -53,41 +53,41 @@ int main(int argc, char* argv[]){
         input.push_back('\"'); // adds a closing bracket
 
         // runs the linux command
-        std::vector <std::string> arr_file = exec("find . -type f " + input + " 2>/dev/null");
-        std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
+        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
         
         
-        if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
+        if ((*arr_file).empty() && (*arr_dir).empty()){ //if both vectors are empty
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
         
-        if (!arr_file.empty()){ // if there's files
-            total += arr_file.size();
-            vector_ptr.push_back(&arr_file); //add pointer to the final vector
-            if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
+        if (!(*arr_file).empty()){ // if there's files
+            total += (*arr_file).size();
+            vector_ptr.push_back(arr_file);
+            if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
-            for(const std::string& out: arr_file){
+            for(const std::string& out: (*arr_file)){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
         
-        if (!arr_dir.empty()){ // if theres directories
-            total += arr_dir.size();
-            vector_ptr.push_back(&arr_dir); //add pointer to the final vector
-            if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
+        if (!(*arr_dir).empty()){ // if theres directories
+            total += (*arr_dir).size();
+            vector_ptr.push_back(arr_dir);
+            if((*arr_dir).size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
-            for(const std::string& out: arr_dir){
+            for(const std::string& out: (*arr_dir)){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
 
         
-        //merge_sort(arr_dir);
-        //std::cout << arr_file << N << arr_dir;
+        //merge_sort((*arr_dir));
+        //std::cout << (*arr_file) << N << (*arr_dir);
         }
     }
     if(cd && total) {
@@ -120,10 +120,7 @@ int main(int argc, char* argv[]){
 
 
         }
-    for (size_t i = 0; i < vector_ptr.size(); i++)
-    {
-        std::cout << *(vector_ptr[i]);
-    }
+    
     
     
     return 0;
