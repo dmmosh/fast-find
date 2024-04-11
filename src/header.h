@@ -7,6 +7,8 @@
 #include <array>
 #include <vector>
 
+#define N '\n'
+
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
 
