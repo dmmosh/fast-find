@@ -22,8 +22,8 @@ void merge_sort(std::vector<std::string>& arr, int left, int middle, int right) 
     // creates temp arrays 
     std::vector<std::string> temp_left(arr.begin() + left, arr.begin() + left + left_range);
     std::vector<std::string> temp_right(arr.begin() + middle+1, arr.begin() + middle+1+right_range);
-    std::cout << temp_left << '\t' << left_range << N;
-    std::cout << temp_right << '\t' << right_range << N;
+    std::cout << N << temp_left << '\t' << left_range;
+    std::cout << N << temp_right << '\t' << right_range;
 
     int i =0;
     int j = 0;
