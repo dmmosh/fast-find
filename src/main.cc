@@ -57,8 +57,8 @@ int main(int argc, char* argv[]){
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
-        vector_ptr.push_back(arr_file);
-        vector_ptr.push_back(arr_dir);
+        if(arr_file->size()) vector_ptr.push_back(arr_file);
+        if(arr_dir->size()) vector_ptr.push_back(arr_dir);
         
         
         if ((*arr_file).empty() && (*arr_dir).empty()){ //if both vectors are empty
@@ -112,21 +112,23 @@ int main(int argc, char* argv[]){
 
             char* invalid; //invalid/valid pointer
             int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
-            if(*invalid){
+            if(*invalid){ // if input is invalid
                 std::cout << "\tInvalid number.\n"; 
                 break;
             }
-            if(cd_loc > total){
+            if(cd_loc > total){ //if input is bigger than the # of elements
                 std::cout << "\tInput out of bounds.\n";
                 break;
             }
-            std::cout << cd_loc << N;
+            
 
             break; //exits the loop either way 
         }
 
+        std::cout<< N;
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
+            std::cout << *(vector_ptr[i]);
             delete vector_ptr[i]; //frees the memory
         }
         
