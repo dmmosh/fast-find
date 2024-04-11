@@ -13,7 +13,7 @@ int main(int argc, char* argv[]){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose = '\0'; // loose search, default is empty
     bool pwd = false; // whether to print the working directory
-    bool cd = false; // whether to cd command
+    bool cd = true; // whether to cd command
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
@@ -80,9 +80,13 @@ int main(int argc, char* argv[]){
 
         if(cd) {
             std::string input; // the input
-            std::cout << "cd? [Enter a number]:  "; //enters a number to change directory to
+            std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             std::cin >> input; // takes input
-            std::cout << N; //spits out input
+            std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
+            std::cout << N; //newline
+            if (input == "no") { // if user types no
+                continue;
+            }
             if (!isdigit(atoi(input.c_str()))) { // if the input is invalid character
                 std::cout << "\tInvalid number.\n"; 
                 continue;
