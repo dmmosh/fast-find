@@ -35,7 +35,7 @@ int main(int argc, char* argv[]){
             merge_sort(arr_file); //sorts the output file
             std::cout << "FILES:";
             for(const std::string& out: arr_file){
-                std::cout << N << out;
+                std::cout << N << "  "<< out;
             }
             std::cout << N;
             
