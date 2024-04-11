@@ -80,14 +80,23 @@ int main(int argc, char* argv[]){
 
         if(cd) {
             std::string input; // the input
-            std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
+            if (total == 1){
+                std::cout << "cd? [Yes / No]:  "; // if onlt 1 total
+            } else {
+                std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
+            }
             std::cin >> input; // takes input
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
+
             if (input == "no" || input == "n") { // if user types no
-                continue;
+                continue; //skips the iteration
+
+            } else if (input == "yes" || input == "y"){ //if user says yes, set input to 1
+                input = "1"; //sets input
             }
-            char* invalid;
-            int cd_loc = strtol(input.c_str(), &invalid, 10);
+
+            char* invalid; //invalid/valid pointer
+            int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
             if(*invalid){
                 std::cout << "\tInvalid number.\n"; 
                 continue;
