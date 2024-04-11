@@ -31,22 +31,24 @@ int main(int argc, char* argv[]){
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
             std::cout << "  No files/directories found.\n"; // prints message
             continue; // skips to the next element
-        } else if (!arr_file.empty()){ // if there's files
+        }
+        
+        if (!arr_file.empty()){ // if there's files
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "FILES:";
             for(const std::string& out: arr_file){
                 std::cout << N << "  "<< out;
             }
             std::cout << N;
-        } else if (!arr_dir.empty()){
+        }
+        
+        if (!arr_dir.empty()){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
                 std::cout << N << "  "<< out;
             }
             std::cout << N;
-        } else { // if neither file nor directory found
-            std::cout << "  No files/directories found.\n"; // prints message
         }
 
 
