@@ -91,7 +91,7 @@ int main(int argc, char* argv[]){
         //std::cout << (*arr_file) << N << (*arr_dir);
         }
     }
-    while(cd && total) {
+    while(cd && total) { //loop to exit out of at will (lots of if statements)
             std::string input = ""; // the input
             if (total == 1){
                 std::cout << "cd? [Yes / No]:  "; // if onlt 1 total
@@ -122,7 +122,7 @@ int main(int argc, char* argv[]){
             }
             std::cout << cd_loc << N;
 
-            break;
+            break; //exits the loop either way 
         }
 
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
