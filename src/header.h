@@ -8,6 +8,7 @@
 #include <vector>
 
 #define N '\n'
+#define echo(x) system(x); //echo command on linux
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
@@ -20,6 +21,7 @@ void merge_sort(std::vector<std::string>& arr, int left, int right);
 
 // MERGES BACK THE PIECES
 void merge_sort(std::vector<std::string>& arr, int left, int middle, int right);
+
 
 // PRINT A VECTOR
 // mostly for debug

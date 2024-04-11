@@ -65,7 +65,7 @@ std::vector<std::string> exec(const std::string& cmd) {
     } 
 
     while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
-        
+
         result.push_back(buffer.data()); // pushes the output to the back of the array
         result.back().resize(result.back().size() - 1); //removes the newline character
     }
