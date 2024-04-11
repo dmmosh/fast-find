@@ -5,6 +5,5 @@ int main(){
 
     std::vector <std::string> arr = {"hello", "apple", "test", "banana", "tom", "jerry"};
     merge_sort(arr);
-    std::cout << arr;
     return 0;
 }
