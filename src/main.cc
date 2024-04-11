@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input;
+        std::cout << "\nVARIABLE " << print_input << N;
     
 
         std::vector <std::string> arr_file = exec("find . -type f -iname \""
