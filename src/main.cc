@@ -28,10 +28,10 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input << ((loose) ? "  (STRICT)" : "  (LOOSE)") << ":\n";
+        std::cout << "\nVARIABLE " << print_input << ((loose != '\0') ? "  (LOOSE)" : "  (STRICT)") << ":\n";
 
         
-        if(loose) { // if loose is NOT null terminator, aka search is LOOSE
+        if(loose != '\0') { // if loose is NOT null terminator, aka search is LOOSE
             input.push_back(loose); //inserts loose asterisk in end
             input.insert(input.begin(), loose); // inserts loose asterisk in beginning
             input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
