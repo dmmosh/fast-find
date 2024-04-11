@@ -53,7 +53,6 @@ int main(int argc, char* argv[]){
         std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
         int total = arr_file.size() + arr_dir.size(); // the total # of elements
-        std::cout << total;
         int iterated = 0; //iterated counter
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
@@ -65,7 +64,7 @@ int main(int argc, char* argv[]){
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "FILES:";
             for(const std::string& out: arr_file){
-                std::cout << total - iterated-- << "\n\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << N << total - iterated-- << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
@@ -74,7 +73,7 @@ int main(int argc, char* argv[]){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
-                std::cout << total - iterated-- << "\n\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << N <<  total - iterated-- << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         }
