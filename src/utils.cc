@@ -16,12 +16,20 @@ void merge_sort(std::vector<std::string>& arr, int left, int right){
 
 // MERGES BACK THE PIECES
 void merge_sort(std::vector<std::string>& arr, int left, int middle, int right) {
-    int left_range = middle-left+1;
-    int right_range = right-middle;
+    int left_range = middle-left+1; // the left value range
+    int right_range = right-middle; // the right value range
 
+    // creates temp arrays 
     std::vector<std::string> temp_left(arr.begin() + left, arr.begin() + left + left_range);
     std::vector<std::string> temp_right(arr.begin() + middle+1, arr.begin() + middle+1+right_range);
-    std::cout << N<<temp_left << N << N << temp_right;
+    std::cout << temp_left << '\t' << left_range << N;
+    std::cout << temp_right << '\t' << right_range << N;
+
+    int i =0;
+    int j = 0;
+    int k = left;
+    
+    
 };
 
 
