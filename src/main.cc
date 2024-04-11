@@ -18,6 +18,7 @@ int main(int argc, char* argv[]){
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
     std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
+    std::vector<int> end_i; // ending indexes of the vector of pointers
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
@@ -59,7 +60,8 @@ int main(int argc, char* argv[]){
 
         vector_ptr.push_back(arr_file);
         vector_ptr.push_back(arr_dir);
-        
+        end_i.push_back(arr_file->size());
+        end_i.push_back(arr_dir->size());
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
             std::cout << "\tNo files/directories found.\n"; // prints message
@@ -121,11 +123,12 @@ int main(int argc, char* argv[]){
                 break;
             }
             
-
+            
             break; //exits the loop either way 
         }
 
         std::cout<< N;
+        std::cout << end_i << N;
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
             if (vector_ptr[i]->size()){
