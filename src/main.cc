@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
         std::cout << "\nVARIABLE ";
         int j = 0;
         while(argv[i][j]){
-            std::cout <<toupper(argv[i][j]);
+            std::cout << (char)toupper(argv[i][j]);
             j++;
         };
         std::cout << N;
