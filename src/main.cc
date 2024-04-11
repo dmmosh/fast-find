@@ -28,7 +28,7 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input << ":\n";
+        std::cout << "\nVARIABLE " << print_input << ":\t\t" << ((loose) ? "(strict)" : "(loose)");;
 
         if(loose) { // if loose is NOT the null terminator, append it to the input
             input.push_back(loose);
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_file.empty()){ // if there's files
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
-            std::cout << "FILES:\t\t\t" << ((loose) ? "(strict)" : "(loose)");
+            std::cout << "FILES:";
             for(const std::string& out: arr_file){
                 std::cout << N << "  "<< out;
             }
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir.empty()){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
-            std::cout << "DIRECTORIES:\t\t" << ((loose) ? "(strict)" : "(loose)");
+            std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
                 std::cout << N << "  "<< out;
             }
