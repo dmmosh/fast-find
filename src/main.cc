@@ -22,10 +22,11 @@ int main(int argc, char* argv[]){
         };
         std::cout << N;
 
-        std::vector <std::string> arr = exec("find . -type f -iname \"*"+ std::string(argv[i]) +"*\" 2>/dev/null");
-        std::vector <std::string> arr = exec("find . -type d -iname \"*"+ std::string(argv[i]) +"*\" 2>/dev/null");
-        merge_sort(arr); //aad
-        std::cout << arr;
+        std::vector <std::string> arr_file = exec("find . -type f -iname \"*"+ std::string(argv[i]) +"*\" 2>/dev/null");
+        std::vector <std::string> arr_dir = exec("find . -type d -iname \"*"+ std::string(argv[i]) +"*\" 2>/dev/null");
+        merge_sort(arr_file); //aad
+        merge_sort(arr_dir);
+        std::cout << arr_file << N << arr_dir;
     }
     
     return 0;
