@@ -12,7 +12,7 @@ g++ src/main.cc src/utils.cc -o fast-find;
 int main(int argc, char* argv[]){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose = '\0'; // loose search, default is empty
-    
+    bool pwd = false; // whether to print the working directory
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
     {
@@ -24,7 +24,10 @@ int main(int argc, char* argv[]){
         } else if (input == "-s" || input == "--strict"){ //specifies strictness of search
             loose= '\0'; //sets loose to nothing
             continue; //iterates
-        } 
+        } else if (input == "-pwd"){ //if user wants to print the working directory
+            pwd = true; //assign to true
+            continue; //iterates
+        }
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
@@ -53,7 +56,7 @@ int main(int argc, char* argv[]){
             if(arr_file.size() > 1) merge_sort(arr_file); //sorts the output files, if more than 1 element
             std::cout << "FILES:";
             for(const std::string& out: arr_file){
-                std::cout << N << "  "<< out;
+                std::cout << N << "  " << ((pwd) ? exec("pwd " + out)[0] : out);
             }
             std::cout << N;
         }
@@ -62,7 +65,7 @@ int main(int argc, char* argv[]){
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
-                std::cout << N << "  "<< out;
+                std::cout << N << "  "<< ((pwd) ? exec("pwd " + out)[0] : out);
             }
             std::cout << N;
         }
