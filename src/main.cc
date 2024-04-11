@@ -4,7 +4,7 @@ int main(){
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
 
     std::vector <std::string> arr = {"hello", "applfdfdgrve", "tesfvdt", "bancana", "to", "jerrfdsy"};
-    merge_sort(arr);
+    merge_sort(arr); //aa
     std::cout << arr;
     return 0;
 }
