@@ -10,6 +10,15 @@
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
 
+// CALLS THE RECURSIVE MERGE SORT
+void merge_sort(std::vector<std::string>& arr);
+
+// RECURSIVE MERGE SORT FUNCTION
+void merge_sort(std::vector<std::string>& arr, int left, int right);
+
+// MERGES BACK THE PIECES
+void merge_sort(std::vector<std::string>& arr, int left, int middle, int right);
+
 // PRINT A VECTOR
 // mostly for debug
 template<typename T>
