@@ -10,10 +10,14 @@
 
 std::vector<std::string> exec(const std::string& cmd);
 
+// PRINT A VECTOR
 template<typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
-        for(const T data: input){
-            out << data << "fdjkl";
+        for (unsigned int i = 0; i < input.size(); i++) //iterates over the elements
+        {
+            if(!i) out << " "; //adds a space to before printing if not first element
+            out << input[i];
         }
+        
         return out;
 };
