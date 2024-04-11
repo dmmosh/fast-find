@@ -43,9 +43,11 @@ int main(int argc, char* argv[]){
         }
         input.push_back('\"'); // adds a closing bracket
 
+        // runs the linux command
         std::vector <std::string> arr_file = exec("find . -type f " + input + " 2>/dev/null");
         std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
+        
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
             std::cout << "  No files/directories found.\n"; // prints message
@@ -61,7 +63,7 @@ int main(int argc, char* argv[]){
             std::cout << N;
         }
         
-        if (!arr_dir.empty()){
+        if (!arr_dir.empty()){ // if theres directories
             if(arr_dir.size() > 1) merge_sort(arr_dir); //sorts the output files, if more than 1 element
             std::cout << "DIRECTORIES:";
             for(const std::string& out: arr_dir){
