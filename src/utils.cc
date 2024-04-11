@@ -10,7 +10,7 @@ std::vector<std::string> exec(const std::string& cmd) {
 
     while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
         result.push_back(buffer.data());
-        result.back().resize(result.back().size() - 1);
+        result.back().resize(result.back().size() - 3);
     }
     return result;
 }
