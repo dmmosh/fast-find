@@ -91,7 +91,7 @@ int main(int argc, char* argv[]){
         //std::cout << (*arr_file) << N << (*arr_dir);
         }
     }
-    if(cd && total) {
+    while(cd && total) {
             std::string input = ""; // the input
             if (total == 1){
                 std::cout << "cd? [Yes / No]:  "; // if onlt 1 total
@@ -99,11 +99,11 @@ int main(int argc, char* argv[]){
                 std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             }
             std::getline(std::cin, input);
-            
+
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
 
             if (input == "no" || input == "n") { // if user types no
-                return 0;
+                break;
             } else if (input == "yes" || input == "y"){ //if user says yes, set input to 1
                 input = "1"; //sets input
             } else if (input == ""){ //if blank input, bottom location is cd into
@@ -114,20 +114,19 @@ int main(int argc, char* argv[]){
             int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
             if(*invalid){
                 std::cout << "\tInvalid number.\n"; 
-                return 0;
+                break;
             }
             if(cd_loc > total){
                 std::cout << "\tInput out of bounds.\n";
-                return 0;
+                break;
             }
             std::cout << cd_loc << N;
 
-
+            break;
         }
 
-        for (size_t i = 0; i < vector_ptr.size(); i++)
+        for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
-            std::cout << *(vector_ptr[i]) << N;
             delete vector_ptr[i]; //frees the memory
         }
         
