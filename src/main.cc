@@ -53,10 +53,11 @@ int main(int argc, char* argv[]){
         std::vector <std::string> arr_dir = exec("find . -type d " + input + " 2>/dev/null");
 
         int total = arr_file.size() + arr_dir.size(); // the total # of elements
+        std::cout << total;
         int iterated = 0; //iterated counter
         
         if (arr_file.empty() && arr_dir.empty()){ //if both vectors are empty
-            std::cout << "  No files/directories found.\n"; // prints message
+            std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
         
