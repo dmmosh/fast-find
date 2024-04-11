@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\n\tVARIABLE " << print_input << ((loose != '\0') ? " (LOOSE)" : " (STRICT)") << ":\n";
+        std::cout << "\nVARIABLE " << print_input << ((loose != '\0') ? " (LOOSE)" : " (STRICT)") << ":\n";
 
         
         if(loose != '\0') { // if loose is NOT null terminator, aka search is LOOSE
@@ -92,7 +92,7 @@ int main(int argc, char* argv[]){
         }
     }
     if(cd && total) {
-            std::string input; // the input
+            std::string input = ""; // the input
             if (total == 1){
                 std::cout << "cd? [Yes / No]:  "; // if onlt 1 total
             } else {
@@ -105,6 +105,8 @@ int main(int argc, char* argv[]){
                 return 0;
             } else if (input == "yes" || input == "y"){ //if user says yes, set input to 1
                 input = "1"; //sets input
+            } else if (input == ""){ //if blank input, bottom location is cd into
+                input = std::to_string(total);
             }
 
             char* invalid; //invalid/valid pointer
