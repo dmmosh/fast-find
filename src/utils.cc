@@ -31,7 +31,7 @@ void merge_sort(std::vector<std::string>& arr, int left, int middle, int right) 
     int j = 0; // iterates right array
     int k = left; // iterates left array
     while (i < left_range && j <right_range){ //sorts the values
-        if(temp_left[i].length() <= temp_right[j].length()){
+        if(temp_left[i].length() > temp_right[j].length()){
             arr[k] = temp_left[i];
             i++;
         } else {
