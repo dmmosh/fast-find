@@ -28,7 +28,7 @@ int main(int argc, char* argv[]){
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input << ":\t\t" << ((loose) ? "(strict)" : "(loose)") << N;
+        std::cout << "\nVARIABLE " << print_input << ":\t" << ((loose) ? "(strict)" : "(loose)") << N;
 
         if(loose) { // if loose is NOT the null terminator, append it to the input
             input.push_back(loose);
