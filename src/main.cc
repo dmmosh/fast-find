@@ -58,17 +58,16 @@ int main(int argc, char* argv[]){
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
+        vector_ptr.push_back(arr_file); //appends the pointer
+        vector_ptr.push_back(arr_dir); //appends the pointer
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
-            delete arr_file; //frees memory
-            delete arr_dir; //frees memory
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
         
         if (!arr_file->empty()){ // if there's files
             total += arr_file->size();
-            vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
@@ -76,13 +75,10 @@ int main(int argc, char* argv[]){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
-        } else {
-            delete arr_file;
         }
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
-            vector_ptr.push_back(arr_dir); //appends the pointer
             end_i.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
@@ -90,8 +86,6 @@ int main(int argc, char* argv[]){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
-        } else {
-            delete arr_dir;
         }
 
         
