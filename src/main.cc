@@ -71,6 +71,10 @@ int main(int argc, char* argv[]){
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
             delete arr_file; //frees memory
             delete arr_dir; //frees memory
+            stop_file = true; //stops the loading wheel
+            load_file.join(); //joins the thread
+            stop_dir = true; //stops the dir
+            load_dir.join(); // joins the thread
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
@@ -90,6 +94,8 @@ int main(int argc, char* argv[]){
             }
             std::cout << N;
         } else {
+            stop_file = true; //stops the loading wheel
+            load_file.join(); //joins the thread
             delete arr_file;
         }
         
@@ -108,6 +114,8 @@ int main(int argc, char* argv[]){
             }
             std::cout << N;
         } else {
+            stop_dir = true; //stops the dir
+            load_dir.join(); // joins the thread
             delete arr_dir;
         }
 
