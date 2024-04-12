@@ -141,9 +141,7 @@ int main(int argc, char* argv[]){
             std::cout << end_i << N;
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
             std::vector<std::string> out = exec("cd "+ (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]);
-            if (out[0].find("Not a directory") != std::string::npos){
-                std::cout << "AAAA" << N;
-            }
+            std::cout << out.size()<< N;
 
             std::cout <<out << N;
 
