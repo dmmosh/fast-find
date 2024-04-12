@@ -59,9 +59,6 @@ int main(int argc, char* argv[]){
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
 
-        if(arr_file->size()) end_i.push_back(arr_file->size());
-        if(arr_dir->size()) end_i.push_back(arr_dir->size());
-        
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
