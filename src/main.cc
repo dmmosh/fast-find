@@ -58,8 +58,6 @@ int main(int argc, char* argv[]){
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
-        vector_ptr.push_back(arr_file);
-        vector_ptr.push_back(arr_dir);
 
         if(arr_file->size()) end_i.push_back(arr_file->size());
         if(arr_dir->size()) end_i.push_back(arr_dir->size());
@@ -70,7 +68,8 @@ int main(int argc, char* argv[]){
         }
         
         if (!arr_file->empty()){ // if there's files
-            total += (*arr_file).size();
+            total += arr_file->size();
+            end_i.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
             for(const std::string& out: (*arr_file)){
@@ -81,6 +80,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
+            end_i.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
