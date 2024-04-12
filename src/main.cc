@@ -139,7 +139,9 @@ int main(int argc, char* argv[]){
             }
             std::cout <<data_i << N;
             std::cout << end_i << N;
-            system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
+            //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
+            std::string out = exec("cd "+ (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]])[0];
+            std::cout <<out << N;
 
             break; //exits the loop either way 
         }
