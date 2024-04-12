@@ -67,8 +67,8 @@ int main(int argc, char* argv[]){
         }
         
         if (!arr_file->empty()){ // if there's files
-            vector_ptr.push_back(arr_file); //appends the pointer
             total += arr_file->size();
+            vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
@@ -82,8 +82,8 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
-            end_i.push_back(total);
             vector_ptr.push_back(arr_dir); //appends the pointer
+            end_i.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
