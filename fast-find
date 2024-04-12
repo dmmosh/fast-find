@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ..
 
 # launches fast find, allows for cd
 touch ~/.fftmp
