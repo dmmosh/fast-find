@@ -57,8 +57,8 @@ int main(int argc, char* argv[]){
 
         bool stop = false;
 
-        std::thread load(test, 4);
-
+        std::thread load(loading_screen, false);
+        
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));

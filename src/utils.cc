@@ -90,6 +90,3 @@ void loading_screen(bool& stop){
                 i++;
     }
 }
-void test(int hi){
-    std::cout << hi;
-}
