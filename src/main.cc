@@ -140,12 +140,10 @@ int main(int argc, char* argv[]){
             std::cout <<data_i << N;
             std::cout << end_i << N;
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
-            std::vector<std::string> out = exec("echo -e \"$(cd "+ (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]] + ")\"");
-            if (out.size() && out[0].find("Not a directory") != std::string::npos){
-                std::cout << "AAAAAAA" << N;
-            }
+            std::string location = (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]; //the location to cd to
+            
+            system(("if [[ -f " + location + " ]]; then cd $(dirname \"" + location + "\"); else cd \"" + location + "\"; fi").c_str());
 
-            std::cout <<out[0] << N;
 
             break; //exits the loop either way 
         }
