@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
     std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
-    std::vector<int> end_i = {1}; // ending indexes of the vector of pointers
+    std::vector<int> end_i = {0}; // ending indexes of the vector of pointers
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
