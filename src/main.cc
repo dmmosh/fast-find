@@ -83,7 +83,9 @@ int main(int argc, char* argv[]){
             total += arr_file->size();
             vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
-            if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
+            if((*arr_file).size() > 1) {
+                std::jthread file_merge(merge_sort, std::ref(*arr_file));
+            } 
 
             stop_file = true; //stops the loading wheel
             load_file.join(); //joins the thread
