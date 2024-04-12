@@ -36,6 +36,7 @@ g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
 ```
 
 ## Cool photos: ##
+![2024-04-12_16-54](https://github.com/dmmosh/fast-find/assets/119987092/2c5d9775-7e1f-4e37-b01d-51aadcec386b)
 ![2024-04-12_16-56](https://github.com/dmmosh/fast-find/assets/119987092/d9e015f1-c684-46a4-8558-9a2d3103da3e)
 ![2024-04-12_16-59](https://github.com/dmmosh/fast-find/assets/119987092/3cfa0998-9f10-4b2c-b771-a9871b97dbf1)
 ![2024-04-12_17-03](https://github.com/dmmosh/fast-find/assets/119987092/23fa1ab8-a760-44e5-8a43-365802962bb6)
