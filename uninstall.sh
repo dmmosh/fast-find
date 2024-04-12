@@ -46,4 +46,5 @@ sudo rm /usr/share/applications/fast-find.desktop
 
 fi
 
+echo -e "NOTE: alias 'alias ff=\". ff\"' is still present in your shell configuration file. Please remove it if you want a full uninstall of the program."
 echo -e "Thank you for using the search tool. -Dmytro" 

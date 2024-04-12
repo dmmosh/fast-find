@@ -5,7 +5,8 @@ FAST FIND
 cli tool for quickly searching files
 
 manual compile:
-g++ -std=c++20 src/main.cc src/utils.cc -o ./src/exec;
+g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
+
 */
 
 
@@ -13,7 +14,8 @@ int main(int argc, char* argv[]){
     
     std::cout << std::endl;
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
-    char loose = '\0'; // loose search, default is empty
+    char loose_left = '\0'; // loose search, default is empty
+    char loose_right = '*'; //loose search, default is asterisk
     bool pwd = false; // whether to print the working directory
     bool cd = true; // whether to cd command, default true
 
@@ -28,10 +30,16 @@ int main(int argc, char* argv[]){
         
         std::string input = argv[i];
         if(input == "-l" || input == "--loose"){ //specifies looseness of search
-            loose = '*'; // assigns loose to asterisk
+            loose_left = '*'; 
+            loose_right= '*';
+
+        } else if (input == "-m" || input == "--medium"){  // specified mediumness of search
+            loose_left= '\0';
+            loose_right= '*';
 
         } else if (input == "-s" || input == "--strict"){ //specifies strictness of search
-            loose= '\0'; //sets loose to nothing
+            loose_left= '\0'; 
+            loose_right = '\0';
 
         } else if (input == "-pwd" || input == "--print-work-dir"){ //if user wants to print the working directory
             pwd = true; //assign to true
@@ -39,22 +47,34 @@ int main(int argc, char* argv[]){
         } else if (input == "-cd" || input == "--change-dir"){ //if want to change dir
             cd = (cd) ? false : true; //turns cd on/off if it's already on/off
 
-        } else {
+        } else { // actually looks
 
         std::string print_input = input;
         std::transform(print_input.begin(), print_input.end(), print_input.begin(), ::toupper); 
-        std::cout << "\nVARIABLE " << print_input << ((loose != '\0') ? " (LOOSE)" : " (STRICT)") << ":\n";
-
-        
-        if(loose != '\0') { // if loose is NOT null terminator, aka search is LOOSE
-            input.push_back(loose); //inserts loose asterisk in end
-            input.insert(input.begin(), loose); // inserts loose asterisk in beginning
-            input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
-        } else { // if strict
+        if (!loose_left && !loose_right) // if neither is * (STRICT)
+        {
+            print_input += " (STRICT):\n"; //adds to print input
             input.insert(0, "-name \""); // inserts -name, case SENSITIVE
+
+        }
+        else if(!loose_left){ // if right is * (MEDIUM)
+            print_input += "  (MEDIUM):\n"; //adds to print input
+            input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
+            input.push_back(loose_right); //inserts loose asterisk in end
+
+        }else { // if BOTH are * (LOOSE)
+            print_input += " (LOOSE):\n"; //adds to print input
+            input.insert(input.begin(), loose_left); // inserts loose asterisk in beginning
+            input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
+            input.push_back(loose_right); //inserts loose asterisk in end
+
         }
         input.push_back('\"'); // adds a closing bracket
+        
 
+        std::cout << "\nVARIABLE " << print_input;
+
+        
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
         bool stop_file = false;
