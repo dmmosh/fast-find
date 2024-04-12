@@ -11,7 +11,7 @@ cd_to="$(cat ~/.fftmp)"
 if [ -f "$cd_to" ]
 then
     cd "$(dirname $cd_to)"
-else if [ -d "$cd_to" ]
+elif [ -d "$cd_to" ]
 then
     cd "$cd_to"
 fi
