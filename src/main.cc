@@ -5,7 +5,7 @@ FAST FIND
 cli tool for quickly searching files
 
 manual compile:
-g++ src/main.cc src/utils.cc -o fast-find;
+g++ -std=c++20 src/main.cc src/utils.cc -o fast-find;
 */
 
 
