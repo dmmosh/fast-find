@@ -128,7 +128,7 @@ int main(int argc, char* argv[]){
             int lower_limit = 0; //the lower limit
             for (size_t i = 0; i < end_i.size(); i++) //get the files to use
             {
-                if(lower_limit <= cd_loc  && cd_loc < end_i[i]) {
+                if(lower_limit <= cd_loc-1  && cd_loc-1 < end_i[i]) {
                     range_i = i; //assigns the range index to i 
                     std::cout << range_i << N;
                     break;
