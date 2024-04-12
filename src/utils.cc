@@ -84,11 +84,11 @@ void loading_screen(bool& stop){
     static char chars[] = {'-', '\\', '|', '/'};
     unsigned int i = 0;
     while(!stop) {
-            printf("%c\r", chars[i % sizeof(chars)]);
+            std::cout << chars[i % sizeof(chars)] << '\r';
             fflush(stdout);
             usleep(200000);
             i++;
     }
-    printf("\r");
+    std::cout<< '\r';
     fflush(stdout); 
 }
