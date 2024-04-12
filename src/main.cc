@@ -137,8 +137,6 @@ int main(int argc, char* argv[]){
                     break;
                 }
             }
-            std::cout <<data_i << N;
-            std::cout << end_i << N;
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
             std::string location = (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]; //the location to cd to
 
