@@ -133,7 +133,7 @@ int main(int argc, char* argv[]){
         std::cout << end_i << N;
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
-                std::cout << *(vector_ptr[i]) << N;
+            std::cout << *(vector_ptr[i]);
             delete vector_ptr[i]; //frees the memory
         }
         
