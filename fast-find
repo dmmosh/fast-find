@@ -4,7 +4,7 @@
 # source ./fast-find 
 
 # launches fast find, allows for cd
-touch "~/.fftmp"
+touch ~/.fftmp
 eval "./exec $@" # runs the command
 eval "cd $(cat ~/.fftmp)"
-rm "~/.fftmp"
+rm ~/.fftmp
