@@ -63,7 +63,6 @@ int main(int argc, char* argv[]){
         else if(!loose_left){ // if right is * (MEDIUM)
             print_input += "  (MEDIUM):\n"; //adds to print input
             input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
-            input.push_back('.'); //adds a dot, filename extension
             input.push_back(loose_right); //inserts loose asterisk in end
 
         }else { // if BOTH are * (LOOSE)
