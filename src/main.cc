@@ -128,10 +128,7 @@ int main(int argc, char* argv[]){
             int data_i = 0; //data index, default at 0
             for (size_t i = 0; i < end_i.size(); i++) //get the files to use
             {
-                if(end_i[i] <= cd_loc && cd_loc < end_i[i+1] ){
-                    data_i = i;
-                    break;
-                }
+                std::cout << "fds" << N;
                 
             }
             std::cout <<data_i << N;
