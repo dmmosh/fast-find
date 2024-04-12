@@ -121,7 +121,7 @@ int main(int argc, char* argv[]){
         } else {
             stop_file = true; //stops the loading wheel
             load_file.join(); //joins the thread
-            delete arr_file;
+            delete arr_file; //frees memory
         }
         
         if (!arr_dir->empty()){ // if theres directories
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]){
         } else {
             stop_dir = true; //stops the dir
             load_dir.join(); // joins the thread
-            delete arr_dir;
+            delete arr_dir; //frees memory
         }
 
         
@@ -157,7 +157,9 @@ int main(int argc, char* argv[]){
             } else {
                 std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             }
-            std::getline(std::cin, input);
+            //std::getline(std::cin, input);
+            std::cin>> input;
+            
 
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
 
