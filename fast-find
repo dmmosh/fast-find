@@ -4,7 +4,7 @@
 
 eval "./exec $@" # runs the command
 
-input="~/."
+input="~/.fftmp"
 while IFS= read -r line
 do
   echo "$line"
