@@ -39,4 +39,4 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
-void loading_screen(int stop);
+void loading_screen(int* stop);
