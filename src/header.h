@@ -52,4 +52,4 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
-consteval void loading_screen(bool& stop);
+void loading_screen(bool& stop);
