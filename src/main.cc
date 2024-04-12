@@ -10,6 +10,10 @@ g++ src/main.cc src/utils.cc -o fast-find;
 
 
 int main(int argc, char* argv[]){
+    for ( int i=0; i < 100; ++i )
+    {
+    std::cout << i << '\r';
+    }
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose = '\0'; // loose search, default is empty
     bool pwd = false; // whether to print the working directory
