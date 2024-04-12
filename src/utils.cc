@@ -81,5 +81,5 @@ void write_tmp(const std::string& out, const std::string& filename){
 }
 
 void loading_screen(int stop){
-    std::cout << stop;
+    std::cout << stop << N;
 }
