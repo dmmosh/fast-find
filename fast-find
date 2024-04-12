@@ -4,7 +4,17 @@
 # source ./fast-find 
 
 # launches fast find, allows for cd
-touch ~/.fftmp
+touch ~/.fftmp # creates temp file
 eval "./exec $@" # runs the command
-eval "cd $(cat ~/.fftmp)"
-rm ~/.fftmp
+cd_to="$(cat ~/.fftmp)"
+
+if [ -f "$cd_to" ]
+then
+    cd "$(dirname $cd_to)"
+else if [ -d "$cd_to" ]
+then
+    cd "$cd_to"
+fi
+# if the user didnt want to cd, nothing will happen
+
+rm ~/.fftmp # remove temp file
