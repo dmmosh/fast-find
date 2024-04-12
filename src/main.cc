@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
     std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
-    std::vector<int> end_i; // ending indexes of the vector of pointers
+    std::vector<int> end_num; // ending num elements in each vector
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_file->empty()){ // if there's files
             total += arr_file->size();
-            end_i.push_back(total-1);
+            end_num.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
             for(const std::string& out: (*arr_file)){
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
-            end_i.push_back(total-1);
+            end_num.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
@@ -126,7 +126,7 @@ int main(int argc, char* argv[]){
         }
 
         std::cout<< N;
-        std::cout << end_i << N;
+        std::cout << end_num << N;
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
             if (vector_ptr[i]->size()){
