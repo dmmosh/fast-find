@@ -41,7 +41,7 @@ g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
 ![2024-04-12_17-03](https://github.com/dmmosh/fast-find/assets/119987092/23fa1ab8-a760-44e5-8a43-365802962bb6)
 ![2024-04-12_16-53](https://github.com/dmmosh/fast-find/assets/119987092/34ee7886-ecda-4e3c-ba96-80c9b0a8af5c)
 
-PERFORMANCE:
+## Performance: ##
 ![2024-04-12_17-02](https://github.com/dmmosh/fast-find/assets/119987092/fda38fdd-16d8-432b-95f0-7ecadd2465e3)
 ![2024-04-12_17-02_1](https://github.com/dmmosh/fast-find/assets/119987092/2e628ab9-98bd-4d50-a9f5-8302e01afd81)
 
