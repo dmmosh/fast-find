@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# launches fast find, allows for cd
+
+eval "./exec $@" # runs the command
+
+input="~/."
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"

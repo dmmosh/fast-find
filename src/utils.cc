@@ -73,8 +73,9 @@ std::vector<std::string> exec(const std::string& cmd) {
 }
 
 void write_tmp(const std::string& out, const std::string& filename){
-    std::ofstream stream(filename);
-    if (!stream) return;
-    stream << out;
+    std::ofstream file;
+    file.open(filename);
+    file << out;
+    file.close();
     return;
 }
