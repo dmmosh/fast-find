@@ -16,7 +16,7 @@ git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./un
 int main(int argc, char* argv[]){
     if (argc <=1){ //if no args 
         HELP;
-        return;
+        return 0;
     }
 
     std::cout << std::endl;
