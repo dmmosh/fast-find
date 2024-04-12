@@ -145,7 +145,7 @@ int main(int argc, char* argv[]){
                 std::cout << "AAAAAAA" << N;
             }
 
-            std::cout <<out << N;
+            std::cout <<out[0] << N;
 
             break; //exits the loop either way 
         }
