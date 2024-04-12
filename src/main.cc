@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
     std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
-    std::vector<int> end_num; // ending num elements in each vector
+    std::vector<int> end_i; // ending indexes of the vector of pointers
 
     // iterates over passed parameters
     for (size_t i = 1; i < argc; i++)
@@ -58,15 +58,19 @@ int main(int argc, char* argv[]){
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
 
-
+        
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
+            delete arr_file;
+            delete arr_dir;
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
+        vector_ptr.push_back(arr_file);
+        vector_ptr.push_back(arr_dir);
         
         if (!arr_file->empty()){ // if there's files
             total += arr_file->size();
-            end_num.push_back(total);
+            end_i.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
             std::cout << "\tFILES:";
             for(const std::string& out: (*arr_file)){
@@ -77,7 +81,7 @@ int main(int argc, char* argv[]){
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
-            end_num.push_back(total);
+            end_i.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
             std::cout << "\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
@@ -126,7 +130,7 @@ int main(int argc, char* argv[]){
         }
 
         std::cout<< N;
-        std::cout << end_num << N;
+        std::cout << end_i << N;
         for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
         {
             if (vector_ptr[i]->size()){
