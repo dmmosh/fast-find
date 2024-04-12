@@ -80,7 +80,7 @@ void write_tmp(const std::string& out, const std::string& filename){
     return;
 }
 
-void loading_screen(bool& stop){
+void loading_screen(){
     static char chars[] = {'-', '\\', '|', '/'};
     unsigned int i;
     for (i = 0; ; ++i) {
