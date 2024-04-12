@@ -119,7 +119,7 @@ int main(int argc, char* argv[]){
             }
 
             char* invalid; //invalid/valid pointer
-            long int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
+            unsigned long int cd_loc = strtol(input.c_str(), &invalid, 10); // converts string to int
             if(*invalid){ // if input is invalid
                 std::cout << "\tInvalid number.\n"; 
                 break;
