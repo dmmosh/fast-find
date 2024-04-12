@@ -4,6 +4,7 @@
 
 eval "./exec $@" # runs the command
 
+touch ~/.fftmp
 input="~/.fftmp"
 while IFS= read -r line
 do
