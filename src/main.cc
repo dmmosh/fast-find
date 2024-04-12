@@ -124,16 +124,14 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInput out of bounds.\n";
                 break;
             }
-            int range_i = -1; //range index, by default -1
-            int lower_limit = 0; //the lower limit
-            for (size_t i = 0; i < end_i.size(); i++) //get the files to use
+            int data_i = 0; //data index, default at 0
+            for (size_t i = 0; i < end_i.size()-1; i++) //get the files to use
             {
-                if(lower_limit <= cd_loc-1  && cd_loc-1 < end_i[i]) {
-                    range_i = i; //assigns the range index to i 
-                    std::cout << range_i << N;
+                
+                if(end_i[i] <= cd_loc-1 && cd_loc-1 < end_i[i+1]){
+                    data_i = i;
+                    std::cout<< data_i << N;
                     break;
-                } else{
-                    lower_limit = end_i[i];
                 }
             }
             
