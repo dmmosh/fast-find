@@ -60,8 +60,9 @@ int main(int argc, char* argv[]){
 
         vector_ptr.push_back(arr_file);
         vector_ptr.push_back(arr_dir);
-        end_i.push_back(arr_file->size());
-        end_i.push_back(arr_dir->size());
+
+        if(arr_file->size()) end_i.push_back(arr_file->size());
+        if(arr_dir->size()) end_i.push_back(arr_dir->size());
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
             std::cout << "\tNo files/directories found.\n"; // prints message
