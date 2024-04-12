@@ -142,7 +142,7 @@ int main(int argc, char* argv[]){
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
             std::string location = (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]; //the location to cd to
 
-            system(("echo \""+ location +"\" > ~/.fftmp").c_str());
+            system(("echo \"$(realpath "+ location +")\" > ~/.fftmp").c_str());
             //std::filesystem::current_path("./src");    // change directory
 
             //std::cout << exec("if [[ -f \"" + location + "\" ]]; then cd $(dirname \"" + location + "\"); else cd \"" + location + "\"; fi;");
