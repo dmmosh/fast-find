@@ -85,10 +85,8 @@ void loading_screen(bool& stop){
     unsigned int i = 0;
     while(!stop) {
             std::cout << chars[i % sizeof(chars)] << '\r';
-            fflush(stdout);
             usleep(200000);
             i++;
     }
     std::cout<< '\r' << "";
-    fflush(stdout); 
 }
