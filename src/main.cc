@@ -124,14 +124,15 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInput out of bounds.\n";
                 break;
             }
+            cd_loc--; // turns the location into an index
             int data_i = 0; //data index, default at 0
             for (size_t i = 0; i < end_i.size()-1; i++) //get the files to use
             {
-                
-                if(end_i[i] <= cd_loc-1 && cd_loc-1 < end_i[i+1]){
+                if(end_i[i] <= cd_loc && cd_loc < end_i[i+1] ){
                     data_i = i;
                     break;
                 }
+                
             }
             std::cout <<data_i << N;
             
