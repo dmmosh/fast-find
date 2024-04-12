@@ -203,7 +203,6 @@ int main(int argc, char* argv[]){
             delete vector_ptr[i]; //frees the memory
         }
         std::cout<< "test" << "\r";
-        std::cout << "sfdjkhcjkds" << N;
     
     
     return 0;
