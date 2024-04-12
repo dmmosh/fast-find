@@ -136,6 +136,7 @@ int main(int argc, char* argv[]){
                 
             }
             std::cout <<data_i << N;
+            std::cout << *(vector_ptr[data_i]) << N;
 
             break; //exits the loop either way 
         }
