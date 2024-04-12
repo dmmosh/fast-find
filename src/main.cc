@@ -130,16 +130,16 @@ int main(int argc, char* argv[]){
             }
             cd_loc--; // turns the location into an index
             int data_i = 0; //data index, default at 0
-            for (size_t i = 1; i < end_i.size(); i++) //get the files to use
+            for (size_t i = 0; i < end_i.size()-1; i++) //get the files to use
             {
-                if(end_i[i-1] <= cd_loc && cd_loc < end_i[i]){
+                if(end_i[i] <= cd_loc && cd_loc < end_i[i+1]){
                     data_i = i;
                     break;
                 }
             }
             std::cout <<data_i << N;
             std::cout << end_i << N;
-            std::cout << (*(vector_ptr[data_i])) << N;
+            std::cout << (*(vector_ptr[data_i]))[end_i[data_i-1]] << N;
 
             break; //exits the loop either way 
         }
