@@ -142,7 +142,7 @@ int main(int argc, char* argv[]){
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
             std::string location = (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]; //the location to cd to
             system("pwd");
-            system("cd ./src && dir");
+            system("cd $(realpath ./src) && dir");
             system("pwd");
             //std::cout << exec("if [[ -f \"" + location + "\" ]]; then cd $(dirname \"" + location + "\"); else cd \"" + location + "\"; fi;");
 
