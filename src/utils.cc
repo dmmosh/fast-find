@@ -89,6 +89,6 @@ void loading_screen(bool& stop){
             usleep(200000);
             i++;
     }
-    std::cout<< '\r';
+    std::cout<< '\r' << "";
     fflush(stdout); 
 }
