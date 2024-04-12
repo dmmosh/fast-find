@@ -81,12 +81,5 @@ void write_tmp(const std::string& out, const std::string& filename){
 }
 
 void loading_screen(bool& stop){
-    unsigned long int i =0;
-    static const char chars[] = {'-', '\\', '|', '/'};
-    while(1) {
-                printf("%c\r", chars[i % sizeof(chars)]);
-                fflush(stdout);
-                usleep(200000);
-                i++;
-    }
+    std::cout << stop;
 }

@@ -57,7 +57,7 @@ int main(int argc, char* argv[]){
 
         bool stop = false;
 
-        std::thread load(loading_screen, false);
+        std::thread load(loading_screen, stop);
         
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
