@@ -57,9 +57,15 @@ int main(int argc, char* argv[]){
 
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
-        std::cout << "Loading...";
+        char chars[] = {'-', '\\', '|', '/'};
+        unsigned int i;
+
+        for (i = 0; ; ++i) {
+                printf("%c\r", chars[i % sizeof(chars)]);
+                fflush(stdout);
+                usleep(200000);
+        }
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
-        std::cout << '\r';
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
     
         
