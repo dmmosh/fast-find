@@ -158,8 +158,15 @@ int main(int argc, char* argv[]){
                 std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             }
             //std::getline(std::cin, input);
-            std::cin>> input;
-            
+            char n;
+            while(n = std::cin.get()){
+                if (n=='\n') {
+                    break;
+                }
+                else {
+                    std::cout << n;
+                }
+            }
 
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
 
