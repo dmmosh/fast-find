@@ -55,15 +55,20 @@ int main(int argc, char* argv[]){
         }
         input.push_back('\"'); // adds a closing bracket
 
-        bool stop = false;
-        std::jthread load(loading_screen, std::ref(stop));
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
+        bool stop_file = false;
+        std::jthread load_file(loading_screen, std::ref(stop_file));
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
-        stop = true;
-        load.join();
+        stop_file = true;
+        load_file.join();
+
+        bool stop_dir = false;
+        std::jthread load_dir(loading_screen, std::ref(stop_dir));
 
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
+        stop_dir = true;
+        load_dir.join();
 
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
