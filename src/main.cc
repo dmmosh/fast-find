@@ -60,15 +60,12 @@ int main(int argc, char* argv[]){
         bool stop_file = false;
         std::jthread load_file(loading_screen, std::ref(stop_file));
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
-        stop_file = true;
-        load_file.join();
 
         bool stop_dir = false;
         std::jthread load_dir(loading_screen, std::ref(stop_dir));
 
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
-        stop_dir = true;
-        load_dir.join();
+        
 
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
@@ -83,7 +80,11 @@ int main(int argc, char* argv[]){
             vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
             if((*arr_file).size() > 1) merge_sort((*arr_file)); //sorts the output files, if more than 1 element
-            std::cout << "\tFILES:";
+
+            stop_file = true; //stops the loading wheel
+            load_file.join(); //joins the thread
+
+            std::cout << "\r\r\tFILES:";
             for(const std::string& out: (*arr_file)){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
@@ -97,7 +98,11 @@ int main(int argc, char* argv[]){
             vector_ptr.push_back(arr_dir); //appends the pointer
             end_i.push_back(total);
             if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
-            std::cout << "\tDIRECTORIES:";
+
+            stop_dir = true; //stops the dir
+            load_dir.join(); // joins the thread
+
+            std::cout << "\r\r\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
                 std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
