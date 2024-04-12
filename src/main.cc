@@ -130,10 +130,10 @@ int main(int argc, char* argv[]){
                 
                 if(end_i[i] <= cd_loc-1 && cd_loc-1 < end_i[i+1]){
                     data_i = i;
-                    std::cout<< data_i << N;
                     break;
                 }
             }
+            std::cout <<data_i << N;
             
             break; //exits the loop either way 
         }
