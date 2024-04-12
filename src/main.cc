@@ -105,8 +105,9 @@ int main(int argc, char* argv[]){
             total += arr_dir->size();
             vector_ptr.push_back(arr_dir); //appends the pointer
             end_i.push_back(total);
-            if(arr_dir->size() > 1) merge_sort((*arr_dir)); //sorts the output files, if more than 1 element
-
+            if((*arr_dir).size() > 1) {
+                std::jthread file_merge(merge_sort_call, std::ref(*arr_dir));
+            } 
             stop_dir = true; //stops the dir
             load_dir.join(); // joins the thread
 
