@@ -1,13 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
+# no linker (accomodate for both bash and zsh)
+
+# to debug: 
 # HAVE TO RUN AS SOURCE 
 # source ./fast-find  or . ./fast-find
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+#SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # launches fast find, allows for cd
 touch ~/.fftmp # creates temp file
-eval "$SCRIPT_DIR/exec $@" # runs the command #TODO: change
+eval "/usr/share/fast-find_/exec $@" # runs the command #TODO: change
 cd_to="$(cat ~/.fftmp)"
 
 if [ -f "$cd_to" ]
