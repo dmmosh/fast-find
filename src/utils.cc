@@ -1,6 +1,6 @@
 #include "header.h"
 
-void merge_sort(std::vector<std::string>& arr){
+void merge_sort_call(std::vector<std::string>& arr){
     merge_sort(arr, 0, arr.size()-1); // calls the recursive merge sort
 };
 

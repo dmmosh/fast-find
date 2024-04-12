@@ -84,7 +84,7 @@ int main(int argc, char* argv[]){
             vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
             if((*arr_file).size() > 1) {
-                std::jthread file_merge(merge_sort, std::ref(*arr_file));
+                std::jthread file_merge(merge_sort_call, std::ref(*arr_file));
             } 
 
             stop_file = true; //stops the loading wheel
