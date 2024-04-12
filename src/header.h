@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
+#include <thread>
 #include <memory>
 #include <stdexcept>
 #include <string>
@@ -39,5 +40,4 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         return out;
 };
 
-
-void write_tmp(const std::string& out, const std::string& filename);
+void loading_screen(bool& stop);

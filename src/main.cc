@@ -55,19 +55,15 @@ int main(int argc, char* argv[]){
         }
         input.push_back('\"'); // adds a closing bracket
 
+        bool stop = false;
+
+        std::thread loading_screen(stop);
+
         // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
-        char chars[] = {'-', '\\', '|', '/'};
-        unsigned int i;
-
-        /*
-        for (i = 0; ; ++i) {
-                printf("%c\r", chars[i % sizeof(chars)]);
-                fflush(stdout);
-                usleep(200000);
-        }*/
-        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("echo hi | find . -type f " + input + " 2>/dev/null"));
-        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("echo hi | find . -type d " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
+        stop = true;
+        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
     
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
