@@ -60,13 +60,13 @@ int main(int argc, char* argv[]){
 
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
-            delete arr_file;
-            delete arr_dir;
+            delete arr_file; //frees memory
+            delete arr_dir; //frees memory
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
-        vector_ptr.push_back(arr_file);
-        vector_ptr.push_back(arr_dir);
+        vector_ptr.push_back(arr_file); //appends the pointer
+        vector_ptr.push_back(arr_dir); //appends the pointer
         
         if (!arr_file->empty()){ // if there's files
             total += arr_file->size();
@@ -125,6 +125,18 @@ int main(int argc, char* argv[]){
                 break;
             }
             
+            int range_i = -1; //range index, by default -1
+            int lower_limit = 0; //the lower limit
+            for (size_t i = 0; i < end_i.size(); i++)
+            {
+                if(lower_limit <= cd_loc  && cd_loc < end_i[i]) {
+                    range_i = i; //assigns the range index to i 
+                    std::cout << range_i << N;
+                    break;
+                } else{
+                    lower_limit = end_i[i];
+                }
+            }
             
             break; //exits the loop either way 
         }
