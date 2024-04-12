@@ -65,8 +65,8 @@ int main(int argc, char* argv[]){
                 fflush(stdout);
                 usleep(200000);
         }
-        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
-        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("echo hi | find . -type f " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("echo hi | find . -type d " + input + " 2>/dev/null"));
     
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
