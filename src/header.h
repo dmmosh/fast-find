@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <memory>
 #include <stdexcept>
@@ -37,3 +38,6 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
+
+
+void write_tmp(const std::string& out, const std::string& filename);
