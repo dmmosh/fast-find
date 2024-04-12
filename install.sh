@@ -66,7 +66,7 @@ alias(){
 read -p "Insert 'alias ff=\". ff\"' into your shell configuration file? [Yes / No / Why]?:  " insert
 
 case "$(echo $insert | tr A-Z a-z)" in 
-    "yes" | "ye" | "y" )
+    "yes" | "ye" | "y" | "")
         alias
     ;;
     "no" | "n" ) 

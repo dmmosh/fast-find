@@ -7,6 +7,9 @@ cli tool for quickly searching files
 manual compile:
 g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
 
+debug:
+git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./uninstall.sh; ./install.sh 
+
 */
 
 
@@ -60,6 +63,7 @@ int main(int argc, char* argv[]){
         else if(!loose_left){ // if right is * (MEDIUM)
             print_input += "  (MEDIUM):\n"; //adds to print input
             input.insert(0, "-iname \""); // inserts -iname, case INSENSITIVE
+            input.push_back('.'); //adds a dot, filename extension
             input.push_back(loose_right); //inserts loose asterisk in end
 
         }else { // if BOTH are * (LOOSE)
@@ -72,7 +76,7 @@ int main(int argc, char* argv[]){
         input.push_back('\"'); // adds a closing bracket
         
 
-        std::cout << "\nVARIABLE " << print_input;
+        std::cout << "VARIABLE  " << print_input;
 
         
         // runs the linux commands
@@ -112,7 +116,7 @@ int main(int argc, char* argv[]){
 
             std::cout << "\r\r\tFILES:";
             for(const std::string& out: (*arr_file)){
-                std::cout << N << iterated++ << "\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
+                std::cout << N << iterated++ << "\r\t" << ((pwd) ? exec("pwd \"" + out + "\"")[0] + out.substr(1) : out);
             }
             std::cout << N;
         } else {
@@ -199,7 +203,8 @@ int main(int argc, char* argv[]){
         {
             delete vector_ptr[i]; //frees the memory
         }
-        
+        std::cout<< "test" << "\r";
+        std::cout << "sfdjkhcjkds" << N;
     
     
     return 0;
