@@ -80,6 +80,13 @@ void write_tmp(const std::string& out, const std::string& filename){
     return;
 }
 
-void loading_screen(int* stop){
-    std::cout << stop << N;
+void loading_screen(){
+    static char chars[] = {'-', '\\', '|', '/'};
+    unsigned int i;
+    for (i = 0; ; ++i) {
+            printf("%c\r", chars[i % sizeof(chars)]);
+            fflush(stdout);
+            usleep(200000);
+    }
+
 }
