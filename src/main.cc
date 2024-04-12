@@ -140,7 +140,7 @@ int main(int argc, char* argv[]){
             std::cout <<data_i << N;
             std::cout << end_i << N;
             //system( ("cd " + (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]).c_str() );
-            std::vector<std::string> out = exec("cd "+ (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]]);
+            std::vector<std::string> out = exec("echo -e \"$(cd "+ (*(vector_ptr[data_i]))[cd_loc-end_i[data_i]] + ")\"");
             std::cout << out.size()<< N;
 
             std::cout <<out << N;
