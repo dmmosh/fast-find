@@ -144,7 +144,7 @@ int main(int argc, char* argv[]){
             std::cout << exec("pwd");
             std::cout << exec("cd ./src");
 
-            std::cout << exec("pwd");
+            std::cout << exec("ls");
             //std::cout << exec("if [[ -f \"" + location + "\" ]]; then cd $(dirname \"" + location + "\"); else cd \"" + location + "\"; fi;");
 
             break; //exits the loop either way 
