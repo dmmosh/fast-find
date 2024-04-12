@@ -120,14 +120,13 @@ int main(int argc, char* argv[]){
                 std::cout << "\tInvalid number.\n"; 
                 break;
             }
-            if(cd_loc > total){ //if input is bigger than the # of elements
+            if(cd_loc > total || cd_loc < 1){ //if input is bigger than the # of elements
                 std::cout << "\tInput out of bounds.\n";
                 break;
             }
-            
             int range_i = -1; //range index, by default -1
             int lower_limit = 0; //the lower limit
-            for (size_t i = 0; i < end_i.size(); i++)
+            for (size_t i = 0; i < end_i.size(); i++) //get the files to use
             {
                 if(lower_limit <= cd_loc  && cd_loc < end_i[i]) {
                     range_i = i; //assigns the range index to i 
