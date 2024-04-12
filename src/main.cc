@@ -60,11 +60,12 @@ int main(int argc, char* argv[]){
         char chars[] = {'-', '\\', '|', '/'};
         unsigned int i;
 
+        /*
         for (i = 0; ; ++i) {
                 printf("%c\r", chars[i % sizeof(chars)]);
                 fflush(stdout);
                 usleep(200000);
-        }
+        }*/
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("echo hi | find . -type f " + input + " 2>/dev/null"));
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("echo hi | find . -type d " + input + " 2>/dev/null"));
     
