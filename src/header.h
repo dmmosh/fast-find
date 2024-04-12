@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <memory>
 #include <stdexcept>
-#include <unistd.h>
 #include <string>
 #include <array>
 #include <string.h>
 #include <filesystem>
 #include <vector>
+#include<bits/stdc++.h> 
 
 #define N '\n'
 
