@@ -163,8 +163,11 @@ int main(int argc, char* argv[]){
                 if (n=='\n') {
                     break;
                 }
+                if (n== 'b'){
+                    break;
+                }
                 else {
-                    std::cout << n;
+                    input += n;
                 }
             }
 
@@ -211,7 +214,6 @@ int main(int argc, char* argv[]){
         {
             delete vector_ptr[i]; //frees the memory
         }
-        std::cout<< "test" << "\r";
     
     
     return 0;
