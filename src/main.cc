@@ -14,7 +14,11 @@ git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./un
 
 
 int main(int argc, char* argv[]){
-    
+    if (argc <=1){ //if no args 
+        HELP;
+        return;
+    }
+
     std::cout << std::endl;
     //std::cout << exec("find . -type f -iname \"*.cc*\" 2>/dev/null");
     char loose_left = '\0'; // loose search, default is empty
@@ -44,9 +48,8 @@ int main(int argc, char* argv[]){
             loose_left= '\0'; 
             loose_right = '\0';
 
-        } else if (input == "-pwd" || input == "--print-work-dir"){ //if user wants to print the working directory
-            pwd = true; //assign to true
-
+        } else if (input == "-pwd" || input == "--print-dir"){ //if user wants to print the working directory
+            pwd = (pwd) ? false :true; //turns pwd on/off
         } else if (input == "-cd" || input == "--change-dir"){ //if want to change dir
             cd = (cd) ? false : true; //turns cd on/off if it's already on/off
 
@@ -157,19 +160,7 @@ int main(int argc, char* argv[]){
             } else {
                 std::cout << "cd? [number 1-" << total << " / No]:  "; //enters a number to change directory to
             }
-            //std::getline(std::cin, input);
-            char n;
-            while(n = std::cin.get()){
-                if (n=='\n') {
-                    break;
-                }
-                if (n== 'b'){
-                    break;
-                }
-                else {
-                    input += n;
-                }
-            }
+            std::getline(std::cin, input);
 
             std::transform(input.begin(), input.end(), input.begin(), ::tolower); //make input lowercase
 

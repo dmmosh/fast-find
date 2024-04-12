@@ -80,8 +80,8 @@ void write_tmp(const std::string& out, const std::string& filename){
     return;
 }
 
-void loading_screen(bool& stop){
-    static char chars[] = {'-', '\\', '|', '/'};
+consteval void loading_screen(bool& stop){
+    const char chars[] = {'-', '\\', '|', '/'};
     unsigned int i = 0;
     while(!stop) {
             std::cout << chars[i % sizeof(chars)] << '\r';
@@ -90,3 +90,4 @@ void loading_screen(bool& stop){
             i++;
     }
 } //fdj
+

@@ -13,6 +13,19 @@
 #include<bits/stdc++.h> 
 
 #define N '\n'
+#define HELP std::cout << R""""(FAST FIND\n
+                        https://github.com/dmmosh/fast-find\n
+                        Quick CLI naviation tool.\n
+                        Usage: ff [options...] search terms...\n
+                        Options:\n
+                          -l, --loose\tLoose search. Displays all results with anything remotely like the search term.\n
+                          -m, --medium\tMedium search. Displays specific results with diregard for file suffix. Default option.\n
+                          -s, --strict\tStrict search. Displays only results with exact full name.\n
+                          -pwd, --print-dir\tPrint full directory of all results. Can be turned on/off.\n
+                          -cd, --change-dir\tChange directory message. By default turned on. Can be turned on/off.\n\n
+                        
+                        Refer to the Github repo for any potential bugs and fixes.\n
+                        )"""";
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
@@ -39,4 +52,4 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& input){
         
         return out;
 };
-void loading_screen(bool& stop);
+consteval void loading_screen(bool& stop);
