@@ -15,9 +15,8 @@ git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./un
 
 int main(int argc, char* argv[]){
     if (argc <=1){ //if no args 
-        std::cout << R""""(
-        FAST FIND
-        https:\/\/github.com\/dmmosh\/fast-find
+        std::cout << R""""(FAST FIND
+        https://github.com/dmmosh/fast-find
         Quick CLI naviation tool.
         Usage: ff [options...] search terms...
         Options:
