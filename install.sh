@@ -15,10 +15,10 @@ then
 home_dir="/home/${SUDO_USER}"
 fi
 
-if [ -z "$(command -v python)" ]
+if [ -z "$(command -v g++)" ]
 then
     echo -e "G++ not installed. Please install g++ and run this script again."
-    g++
+    (g++)
     exit 1
 fi
 
