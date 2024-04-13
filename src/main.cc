@@ -15,7 +15,20 @@ git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./un
 
 int main(int argc, char* argv[]){
     if (argc <=1){ //if no args 
-        HELP;
+        std::cout << R""""(
+        FAST FIND
+        https:\/\/github.com\/dmmosh\/fast-find
+        Quick CLI naviation tool.
+        Usage: ff [options...] search terms...
+        Options:
+          -l, --loose       Loose search. Displays all results with anything remotely like the search term.
+          -m, --medium      Medium search. Displays specific results with diregard for file suffix. Default option.
+          -s, --strict      Strict search. Displays only results with exact full name.
+          -pwd, --print-dir Print full directory of all results. Can be turned on/off.
+          -cd, --change-dir Change directory message. By default turned on. Can be turned on/off.
+
+        Refer to the Github repo for any potential bugs and fixes.
+        )"""" << N;
         return 0;
     }
 
