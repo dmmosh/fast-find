@@ -81,7 +81,7 @@ int main(int argc, char* argv[]){
         std::cout << "\nVARIABLE  " << print_input;
 
         
-        // runs the linux commands
+        // runs the linux commandsff
         // and allocates the output vectors in dynamically allocated memory
         bool stop_file = false;
         std::thread load_file(loading_screen, std::ref(stop_file));
