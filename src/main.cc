@@ -8,7 +8,7 @@ manual compile:
 g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
 
 debug:
-git-all; g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./uninstall.sh; ./install.sh 
+g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./uninstall.sh; ./install.sh; git-all 
 
 */
 
