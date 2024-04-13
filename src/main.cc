@@ -78,17 +78,17 @@ int main(int argc, char* argv[]){
         input.push_back('\"'); // adds a closing bracket
         
 
-        std::cout << "\nVARIABLE  " << print_input;
+        std::cout << "VARIABLE  " << print_input;
 
         
-        // runs the linux commandsff
+        // runs the linux commands
         // and allocates the output vectors in dynamically allocated memory
         bool stop_file = false;
-        std::thread load_file(loading_screen, std::ref(stop_file));
+        std::jthread load_file(loading_screen, std::ref(stop_file));
         std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
 
         bool stop_dir = false;
-        std::thread load_dir(loading_screen, std::ref(stop_dir));
+        std::jthread load_dir(loading_screen, std::ref(stop_dir));
 
         std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
         
@@ -109,8 +109,8 @@ int main(int argc, char* argv[]){
             total += arr_file->size();
             vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
-            if(arr_file->size() > 1) { //if more than 1 element, merge sort it
-                merge_sort(*arr_file);
+            if((*arr_file).size() > 1) {
+                std::jthread file_merge(merge_sort_call, std::ref(*arr_file));
             } 
 
             stop_file = true; //stops the loading wheel
@@ -131,8 +131,8 @@ int main(int argc, char* argv[]){
             total += arr_dir->size();
             vector_ptr.push_back(arr_dir); //appends the pointer
             end_i.push_back(total);
-            if(arr_dir->size() > 1) {
-                merge_sort(*arr_file);
+            if((*arr_dir).size() > 1) {
+                std::jthread file_merge(merge_sort_call, std::ref(*arr_dir));
             } 
             stop_dir = true; //stops the dir
             load_dir.join(); // joins the thread
