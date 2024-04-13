@@ -18,7 +18,7 @@ fi
 if [ -z "$(command -v python)" ]
 then
     echo -e "G++ not installed. Please install g++ and run this script again."
-
+    exit 1
 fi
 
 chmod +x "./fast-find_/exec"
