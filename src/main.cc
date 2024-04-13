@@ -8,7 +8,7 @@ manual compile:
 g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
 
 debug:
-g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec; sudo ./uninstall.sh; ./install.sh; git-all 
+./uninstall.sh; ./install.sh
 
 */
 
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
 
     int total = 0; // the total # of elements
     int iterated = 1; //iterated counter
-    std::vector<std::shared_ptr<std::vector <std::string>>> vector_ptr; // vector of pointers, 2d vector
+    std::vector<std::vector<std::string>*> vector_ptr; // vector of pointers, 2d vector
     std::vector<int> end_i = {0}; // ending indexes of the vector of pointers
 
     // iterates over passed parameters
@@ -97,34 +97,36 @@ int main(int argc, char* argv[]){
         // and allocates the output vectors in dynamically allocated memory
         bool stop_file = false;
         std::jthread load_file(loading_screen, std::ref(stop_file));
-        std::shared_ptr<std::vector <std::string>> arr_file = std::make_shared<std::vector <std::string>>(exec("find . -type f " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_file = new std::vector <std::string>(exec("find . -type f " + input + " 2>/dev/null"));
 
         bool stop_dir = false;
         std::jthread load_dir(loading_screen, std::ref(stop_dir));
 
-        std::shared_ptr<std::vector <std::string>> arr_dir =  std::make_shared<std::vector <std::string>>(exec("find . -type d " + input + " 2>/dev/null"));
+        std::vector <std::string>* arr_dir = new std::vector <std::string>(exec("find . -type d " + input + " 2>/dev/null"));
         
 
         
         if (arr_file->empty() && arr_dir->empty()){ //if both vectors are empty
+            delete arr_file; //frees memory
+            delete arr_dir; //frees memory
             stop_file = true; //stops the loading wheel
-            load_file.request_stop(); //joins the thread
+            load_file.join(); //joins the thread
             stop_dir = true; //stops the dir
-            load_dir.request_stop(); // joins the thread
+            load_dir.join(); // joins the thread
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
         
         if (!arr_file->empty()){ // if there's files
             total += arr_file->size();
-            vector_ptr.push_back(std::move(arr_file)); //appends the pointer
+            vector_ptr.push_back(arr_file); //appends the pointer
             end_i.push_back(total);
             if((*arr_file).size() > 1) {
                 std::jthread file_merge(merge_sort_call, std::ref(*arr_file));
             } 
 
             stop_file = true; //stops the loading wheel
-            load_file.request_stop();; //joins the thread
+            load_file.join(); //joins the thread
 
             std::cout << "\r\r\tFILES:";
             for(const std::string& out: (*arr_file)){
@@ -133,18 +135,19 @@ int main(int argc, char* argv[]){
             std::cout << N;
         } else {
             stop_file = true; //stops the loading wheel
-            load_file.request_stop();; //joins the thread
+            load_file.join(); //joins the thread
+            delete arr_file; //frees memory
         }
         
         if (!arr_dir->empty()){ // if theres directories
             total += arr_dir->size();
-            vector_ptr.push_back(std::move(arr_dir)); //appends the pointer
+            vector_ptr.push_back(arr_dir); //appends the pointer
             end_i.push_back(total);
             if((*arr_dir).size() > 1) {
                 std::jthread file_merge(merge_sort_call, std::ref(*arr_dir));
             } 
             stop_dir = true; //stops the dir
-            load_dir.request_stop();; // joins the thread
+            load_dir.join(); // joins the thread
 
             std::cout << "\r\r\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
@@ -153,7 +156,8 @@ int main(int argc, char* argv[]){
             std::cout << N;
         } else {
             stop_dir = true; //stops the dir
-            load_dir.request_stop();; // joins the thread
+            load_dir.join(); // joins the thread
+            delete arr_dir; //frees memory
         }
 
         
@@ -209,6 +213,11 @@ int main(int argc, char* argv[]){
             break; //exits the loop either way 
         }
 
+        for (size_t i = 0; i < vector_ptr.size(); i++) //frees the memory
+        {
+            delete vector_ptr[i]; //frees the memory
+        }
+    
     
     return 0;
 }
