@@ -15,6 +15,11 @@ then
 home_dir="/home/${SUDO_USER}"
 fi
 
+if [ -z "$(command -v python)" ]
+then
+    echo -e "G++ not installed. Please install g++ and run this script again."
+
+fi
 
 chmod +x "./fast-find_/exec"
 chmod +x "./src/fast-find.desktop"
