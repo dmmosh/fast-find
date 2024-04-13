@@ -25,7 +25,7 @@ Options:
   -cd, --change-dir Change directory message. By default turned on. Can be turned on/off.
 
 Refer to the Github repo for any potential bugs and fixes.
-)"""";
+)""""
 
 // EXECUTES A COMMAND AND RETURNS ITS VECTOR
 std::vector<std::string> exec(const std::string& cmd);
