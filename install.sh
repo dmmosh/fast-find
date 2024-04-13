@@ -26,13 +26,14 @@ chmod +x "./fast-find_/exec"
 chmod +x "./src/fast-find.desktop"
 chmod +x "./uninstall.sh"
 
+echo -e "COMPILING THE EXEC FILE..."
+g++ -std=c++20 -static-libgcc -static-libstdc++ src/main.cc src/utils.cc -o ./fast-find_/exec
+
+
 echo -e "COPYING HELPER FILES..."
 sudo rm -rf "/usr/share/fast-find_"
 sudo cp -r -T "./fast-find_/" "/usr/share/fast-find_"
 sudo chown -R "${SUDO_USER}" "/usr/share/fast-find_"
-
-echo -e "COMPILING THE EXECUTABLE..."
-g++ -std=c++20 -static-libgcc -static-libstdc++ src/main.cc src/utils.cc -o ./fast-find_/exec
 
 echo -e "COPYING THE EXECUTABLE..."
 sudo cp "./ff" "/usr/bin/ff"
