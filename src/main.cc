@@ -110,9 +110,9 @@ int main(int argc, char* argv[]){
             delete arr_file; //frees memory
             delete arr_dir; //frees memory
             stop_file = true; //stops the loading wheel
-            load_file.join(); //joins the thread
+            load_file.request_stop(); //joins the thread
             stop_dir = true; //stops the dir
-            load_dir.join(); // joins the thread
+            load_dir.request_stop(); // joins the thread
             std::cout << "\tNo files/directories found.\n"; // prints message
             continue; // skips to the next element
         }
@@ -126,7 +126,7 @@ int main(int argc, char* argv[]){
             } 
 
             stop_file = true; //stops the loading wheel
-            load_file.join(); //joins the thread
+            load_file.request_stop();; //joins the thread
 
             std::cout << "\r\r\tFILES:";
             for(const std::string& out: (*arr_file)){
@@ -135,7 +135,7 @@ int main(int argc, char* argv[]){
             std::cout << N;
         } else {
             stop_file = true; //stops the loading wheel
-            load_file.join(); //joins the thread
+            load_file.request_stop();; //joins the thread
             delete arr_file; //frees memory
         }
         
@@ -147,7 +147,7 @@ int main(int argc, char* argv[]){
                 std::jthread file_merge(merge_sort_call, std::ref(*arr_dir));
             } 
             stop_dir = true; //stops the dir
-            load_dir.join(); // joins the thread
+            load_dir.request_stop();; // joins the thread
 
             std::cout << "\r\r\tDIRECTORIES:";
             for(const std::string& out: (*arr_dir)){
@@ -156,7 +156,7 @@ int main(int argc, char* argv[]){
             std::cout << N;
         } else {
             stop_dir = true; //stops the dir
-            load_dir.join(); // joins the thread
+            load_dir.request_stop();; // joins the thread
             delete arr_dir; //frees memory
         }
 
