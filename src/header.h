@@ -31,7 +31,7 @@ Refer to the Github repo for any potential bugs and fixes.
 std::vector<std::string> exec(const std::string& cmd);
 
 // CALLS THE RECURSIVE MERGE SORT
-void merge_sort_call(std::vector<std::string>& arr);
+void merge_sort(std::vector<std::string>& arr);
 
 // RECURSIVE MERGE SORT FUNCTION
 void merge_sort(std::vector<std::string>& arr, int left, int right);
