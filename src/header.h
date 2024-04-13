@@ -14,7 +14,7 @@
 
 #define N '\n'
 #define HELP std::cout << R""""(FAST FIND
-https://github.com/dmmosh/fast-find
+https:\/\/github.com\/dmmosh\/fast-find
 Quick CLI naviation tool.
 Usage: ff [options...] search terms...
 Options:
