@@ -81,7 +81,7 @@ void write_tmp(const std::string& out, const std::string& filename){
 }
 
 void loading_screen(bool& stop){
-    const char chars[] = {'-', '\\', '|', '/'};
+    const std::array<char, 4> chars = {'-', '\\', '|', '/'};
     unsigned int i = 0;
     while(!stop) {
             std::cout << chars[i % sizeof(chars)] << '\r';
