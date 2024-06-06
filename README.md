@@ -13,12 +13,17 @@ Options:
   -cd, --change-dir Change directory message. By default turned on. Can be turned on/off.
 ```
 
-## Releases: ##
-[LATEST RELEASE](https://github.com/dmmosh/fast-find/releases/tag/v1.0)
+## Downloads: ##
+[Latest Release](https://github.com/dmmosh/fast-find/releases/tag/v1.0)
+[v1.0](https://github.com/dmmosh/fast-find/releases/tag/v1.0)
 
 ## Manual compiling: ##
 ```
-g++ -std=c++20 src/main.cc src/utils.cc -o ./fast-find_/exec;
+git clone https://github.com/dmmosh/fast-find
+cd fast-find
+g++ -std=c++20 -static-libgcc -static-libstdc++ src/main.cc src/utils.cc -o ./fast-find
+chmod +x ./install.sh
+./install.sh
 ```
 
 ## Cool photos: ##
