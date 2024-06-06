@@ -32,7 +32,6 @@ chmod +x ./install.sh
 
 ![2024-04-12_16-59](https://github.com/dmmosh/fast-find/assets/119987092/3cfa0998-9f10-4b2c-b771-a9871b97dbf1)
 ![Screenshot from 2024-06-05 23-33-18](https://github.com/dmmosh/fast-find/assets/119987092/9639be77-79d1-4ca4-a472-97eabf789cce)
-![2024-04-12_16-53](https://github.com/dmmosh/fast-find/assets/119987092/34ee7886-ecda-4e3c-ba96-80c9b0a8af5c)
 ![1](https://github.com/dmmosh/fast-find/assets/119987092/918b2d44-656b-4d7a-8571-6efdc5ddf329)
 ## Performance: ##
 ![2024-04-12_17-02](https://github.com/dmmosh/fast-find/assets/119987092/fda38fdd-16d8-432b-95f0-7ecadd2465e3)
