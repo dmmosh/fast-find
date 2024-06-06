@@ -1,8 +1,8 @@
 # FAST FIND #
 
-An optimized search CLI tool designed to find files quicker. Designed for working in the terminal for people impatient with Linux's `find` capabilities. Finds all results, sorts in alphabetical order, and allows you to change directory into one of them with lightning speed.
+An optimized search CLI tool designed to find files quicker. Designed for working in the terminal for people who want to get where they need to go, and fast. Written in C++ and optimized using Merge Sort. Acts as a superset of Linux's find command, adding a lot more functionality and the ability to quickly cd.
 
-## Usage: ##
+## Usage: #
 ```
 Usage: ff [options...] search terms...
 Options:
