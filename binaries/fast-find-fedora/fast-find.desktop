@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=fast-find
-Comment=A fast search CLI tool for the file system.
-Terminal=false
-Exec="/usr/bin/ff"
-Categories=Math;Utility;Office;Science;Education;
