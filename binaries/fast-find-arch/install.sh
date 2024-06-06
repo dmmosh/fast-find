@@ -6,14 +6,15 @@ INSTALL SCRIPT FOR FAST FIND
 
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
-home_dir="$HOME"
+home_dir="/home/${SUDO_USER}"
 
 
 chmod +x "./ff"
 chmod +x "./fast-find.desktop"
 chmod +x "./uninstall.sh"
 
-echo -e "COPYING THE EXECUTABLE..."
+echo -e "COPYING THE EXECUTABLES..."
+sudo cp "./fast-find" "/usr/bin/fast-find"
 sudo cp "./ff" "/usr/bin/ff"
 
 echo -e "COPYING THE .DESKTOP FILE..."

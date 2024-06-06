@@ -16,16 +16,10 @@ fi
 
 
 
-os="$(uname)"
 
-home_dir="$HOME"
-
-
-
-
-echo -e "DELETING EXECUTABLE..." 
+echo -e "DELETING EXECUTABLE & SCRIPT..." 
 rm "/usr/bin/ff"
-
+rm "/usr/bin/fast-find"
 
 
 sudo rm /usr/share/applications/fast-find.desktop
