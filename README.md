@@ -29,10 +29,11 @@ chmod +x ./install.sh
 ## Cool photos: ##
 ![2024-04-12_16-54](https://github.com/dmmosh/fast-find/assets/119987092/2c5d9775-7e1f-4e37-b01d-51aadcec386b)
 ![2024-04-12_16-56](https://github.com/dmmosh/fast-find/assets/119987092/d9e015f1-c684-46a4-8558-9a2d3103da3e)
+
 ![2024-04-12_16-59](https://github.com/dmmosh/fast-find/assets/119987092/3cfa0998-9f10-4b2c-b771-a9871b97dbf1)
 ![2024-04-12_17-03](https://github.com/dmmosh/fast-find/assets/119987092/23fa1ab8-a760-44e5-8a43-365802962bb6)
 ![2024-04-12_16-53](https://github.com/dmmosh/fast-find/assets/119987092/34ee7886-ecda-4e3c-ba96-80c9b0a8af5c)
-
+![1](https://github.com/dmmosh/fast-find/assets/119987092/918b2d44-656b-4d7a-8571-6efdc5ddf329)
 ## Performance: ##
 ![2024-04-12_17-02](https://github.com/dmmosh/fast-find/assets/119987092/fda38fdd-16d8-432b-95f0-7ecadd2465e3)
 ![2024-04-12_17-02_1](https://github.com/dmmosh/fast-find/assets/119987092/2e628ab9-98bd-4d50-a9f5-8302e01afd81)
