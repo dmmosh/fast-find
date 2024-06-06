@@ -19,6 +19,8 @@ do
     cp ../../uninstall.sh .
     rm ./fast-find.desktop
     cp ../../src/fast-find.desktop .
+    rm ./ff 
+    cp ../../ff .
 
     cd ..
     tar -czvf "${dir::-1}.tar.gz" $dir

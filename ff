@@ -10,7 +10,7 @@
 
 # launches fast find, allows for cd
 touch ~/.fftmp # creates temp file
-eval "/usr/share/fast-find_/exec $@" # runs the command #TODO: change
+eval "/usr/bin/fast-find $@" # runs the command #TODO: change
 cd_to="$(cat ~/.fftmp)"
 
 if [ -f "$cd_to" ]
