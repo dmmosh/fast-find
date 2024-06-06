@@ -14,7 +14,7 @@ Options:
 ```
 
 ## Releases: ##
-[LATEST RELEASE] (https://github.com/dmmosh/fast-find/releases/tag/v1.0)
+[LATEST RELEASE](https://github.com/dmmosh/fast-find/releases/tag/v1.0)
 
 ## Manual compiling: ##
 ```
